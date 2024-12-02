@@ -5,7 +5,7 @@ function App() {
   const router = useRoutes(routes);
 
   return(
-    <div className="App">
+    <div className="App w-screen min-h-screen text-zinc-800 dark:text-gray-100 bg-gray-100 dark:bg-zinc-800">
       {router}
     </div>
   );
