@@ -1,9 +1,32 @@
+// movies
+export interface TypeMovie{
+  Title: string;
+  Year: string;
+  Runtime: string;
+  Director: string;
+  Writer: string;
+  Actors: string;
+  Plot: string;
+  Language: string;
+  Country: string;
+  Awards: string;
+  Poster: string;
+  imdbRating: string;
+  imdbVotes: string;
+  imdbID: string;
+  Type: string;
+  BoxOffice: string;
+  Response: string;
+  Resolution: string;
+}
 let preferredMovies = [
   {
     "Title":"Joker: Folie à Deux",
     "Year":"2024",
-    "Rated":"R","Released":"04 Oct 2024",
-    "Runtime":"138 min","Genre":"Crime, Drama, Musical",
+    "Rated":"R",
+    "Released":"04 Oct 2024",
+    "Runtime":"138 min",
+    "Genre":"Crime, Drama, Musical",
     "Director":"Todd Phillips",
     "Writer":"Scott Silver, Todd Phillips, Bob Kane",
     "Actors":"Joaquin Phoenix, Lady Gaga, Brendan Gleeson",
@@ -465,13 +488,13 @@ let best250 = [
        "Value": "9.2/10"
      },
    ],
-   "Metascore": "100",
-   "imdbRating": "9.2",
-   "imdbVotes": "2,068,172",
-   "imdbID": "tt0068646",
-   "Type": "movie",
-   "DVD": "N/A",
-   "BoxOffice": "$136,381,073",
+    "Metascore": "100",
+    "imdbRating": "9.2",
+    "imdbVotes": "2,068,172",
+    "imdbID": "tt0068646",
+    "Type": "movie",
+    "DVD": "N/A",
+    "BoxOffice": "$136,381,073",
     "Response": "True"
  },
   {
@@ -11918,4 +11941,171 @@ let movies = [
 "Seventeen",
 ]
 
-export { preferredMovies, best250Names, best250, movies }
+
+// actors
+export interface TypeActor{
+  name: string;
+  career: string;
+  birthDate: string;
+  height: string;
+  poster: string;
+}
+
+let maleActors = [
+  {name: "guy pearce", career: "actor", birthDate: "1967-10-5", height: "1.74 m", poster: "https://shahindb.lol/wp-content/uploads/2024/01/MV5BMTgyNzc2NzY3Nl5BMl5BanBnXkFtZTgwNTMzMzAwMjE@._V1_.jpg"},
+  {name: "michael b. jordan", career: "actor", birthDate: "1987-2-9 in Santa Ana, California, USA", height: "1.83 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMjExOTY3NzExM15BMl5BanBnXkFtZTgwOTg1OTAzMTE@._SY600_SX400.jpg"},
+  {name: "bruce willis", career: "actor", birthDate: "1955-3-19 in Idar-Oberstein, West Germany", height: "1.84 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMjA0MjMzMTE5OF5BMl5BanBnXkFtZTcwMzQ2ODE3Mw@@._SY600_SX400.jpg"},
+  {name: "tom hanks", career: "actor", birthDate: "1956-7-9", height: "1.71 m", poster: "https://shahindb.lol/wp-content/uploads/2023/07/MV5BMTQ2MjMwNDA3Nl5BMl5BanBnXkFtZTcwMTA2NDY3NQ@@._V1_.jpg"},
+  {name: "samuel l. jackson", career: "actor", birthDate: "1948-12-21", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2023/07/MV5BMTQ1NTQwMTYxNl5BMl5BanBnXkFtZTYwMjA1MzY1._V1_.jpg"},
+  {name: "leonardo dicaprio", career: "actor", birthDate: "1974-11-11 in Hollywood, Los Angeles, California, USA", height: "1.83 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMjI0MTg3MzI0M15BMl5BanBnXkFtZTcwMzQyODU2Mw@@._SY600_SX400.jpg"},
+  {name: "dwayne johnson", career: "actor", birthDate: "1972-5-2", height: "1.89 m", poster: "https://shahindb.lol/wp-content/uploads/2024/11/MV5BOWUzNzIzMzQtNzMxYi00OWRiLTlhZjEtZTRjYWVkYzI4ZjMwXkEyXkFqcGc@._V1_.jpg"},
+  {name: "tom hardy", career: "actor", birthDate: "1977-9-15", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2024/02/MV5BMTQ3ODEyNjA4Nl5BMl5BanBnXkFtZTgwMTE4ODMyMjE@._V1_.jpg"},
+  {name: "henry cavill", career: "actor", birthDate: "1983-5-5", height: "1.83 m", poster: "https://shahindb.lol/wp-content/uploads/2024/04/MV5BMWEzMTRiNmMtYmFiOC00OTAyLWIxOGMtNTdkNWUxZGM4OWE2XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg"},
+  {name: "josh duhamel", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.93 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMjE3MDUyNjM1N15BMl5BanBnXkFtZTcwMDc3NDY2Mg@@._SY600_SX400.jpg"},
+  {name: "jason statham", career: "actor", birthDate: "1967-7-26", height: "1.91 m", poster: "https://shahindb.lol/wp-content/uploads/2023/08/MV5BMTkxMzk2MDkwOV5BMl5BanBnXkFtZTcwMDAxODQwMg@@._V1_.jpg"},
+  {name: "tom cruise", career: "actor", birthDate: "1962-7-3", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2023/12/MV5BYTFlOTdjMjgtNmY0ZC00MDgxLThjNmEtZGIxZTQyZDdkMTRjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"},
+  {name: "mads mikkelsen", career: "actor", birthDate: "1965-11-22", height: "1.83 m", poster: "https://shahindb.lol/wp-content/uploads/2023/09/MV5BMTcyMTU5MzgxMF5BMl5BanBnXkFtZTYwMDI0NjI1._V1_.jpg"},
+  {name: "will smith", career: "actor", birthDate: "1968-9-25", height: "1.92 m", poster: "https://shahindb.lol/wp-content/uploads/2024/03/MV5BNTczMzk1MjU1MV5BMl5BanBnXkFtZTcwNDk2MzAyMg@@._V1_.jpg"},
+  {name: "keanu reeves", career: "actor", birthDate: "1964-9-2", height: "1.83 m", poster: "https://shahindb.lol/wp-content/uploads/2024/10/MV5BNDEzOTdhNDUtY2EyMy00YTNmLWE5MjItZmRjMmQzYTRlMGRkXkEyXkFqcGc@._V1_.jpg"},
+  {name: "cillian murphy", career: "actor", birthDate: "1976-5-25", height: "1.76 m", poster: "https://shahindb.lol/wp-content/uploads/2024/03/MV5BMDUxY2M1NTQtNzcwNC00ZDljLTk4YjctYzJjZGNiYTc0YTE1XkEyXkFqcGdeQXVyMTY5MDA5MDc3._V1_.jpg"},
+  {name: "chris evans", career: "actor", birthDate: "1981-6-13", height: "1.85 m", poster: "https://shahindb.lol/wp-content/uploads/2024/07/MV5BMWZlMzRkZmYtZTg0My00MGE2LWFhZWQtOTRmZGQxMWY5OTJhXkEyXkFqcGdeQXVyMTMxODA4Njgx._V1_.jpg"},
+  {name: "mark wahlberg", career: "actor", birthDate: "1971-6-5", height: "1.85 m", poster: "https://shahindb.lol/wp-content/uploads/2023/12/MV5BMTU0MTQ4OTMyMV5BMl5BanBnXkFtZTcwMTQxOTY1NA@@._V1_.jpg"},
+  {name: "tom holland", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BNzZiNTEyNTItYjNhMS00YjI2LWIwMWQtZmYwYTRlNjMyZTJjXkEyXkFqcGdeQXVyMTExNzQzMDE0-scaled.jpg"},
+  {name: "johnny depp", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2024/10/MV5BZjA3NzZiZDktZjc2My00MzY2LThhOWMtZGFjYzg4ZDI2ZWVmXkEyXkFqcGc@._V1_.jpg"},
+  {name: "anthony hopkins", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2024/02/MV5BMTg5ODk1NTc5Ml5BMl5BanBnXkFtZTYwMjAwOTI4._V1_.jpg"},
+  {name: "alexander ludwig", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2024/12/MV5BMmNmZDQzMjAtMmU5Yi00MmY4LThhZDktMzk5ZGY3YWRlNGU3XkEyXkFqcGc@._V1_.jpg"},
+  {name: "chris pratt", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2023/08/MV5BZjdkYjg1NzMtOTY2YS00ZWI1LWEwZWYtOTU1YTM2ODA2ZWY5XkEyXkFqcGdeQXVyMTM1MjAxMDc3._V1_.jpg"},
+  {name: "ryan reynolds", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2023/07/MV5BODFmN2VmZmEtYTRjZi00ZjY1LTgxYjQtODMyNDI3ZDk4ZTJiXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"},
+  {name: "matthew", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMTg0MDc3ODUwOV5BMl5BanBnXkFtZTcwMTk2NjY4Nw@@._SY600_SX400.jpg"},
+  {name: "christian bale", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMTkxMzk4MjQ4MF5BMl5BanBnXkFtZTcwMzExODQxOA@@._SY600_SX400.jpg"},
+  {name: "travis fimmel", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2024/11/MV5BNzMzNTcwMTkxN15BMl5BanBnXkFtZTgwMTgwMDE1MzI@._V1_.jpg"},
+  {name: "sylvester stallone", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMTQwMTk3NDU2OV5BMl5BanBnXkFtZTcwNTA3MTI0Mw@@._SY600_SX400.jpg"},
+  {name: "charlie hunnam", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2023/12/MV5BMjE5NjE5Mzk2MV5BMl5BanBnXkFtZTcwODI5MDE1Ng@@._V1_.jpg"},
+  {name: "adam sandler", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2023/08/MV5BMjQyNzM2MjM1Ml5BMl5BanBnXkFtZTcwMDE5NjI3Mg@@._V1_.jpg"},
+  {name: "pedro pascal", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2024/10/MV5BZWNlYmQ3MzctNTM4OC00Mjk5LTlmM2EtNTU4MjgxMjNiZGEyXkEyXkFqcGc@._V1_.jpg"},
+  {name: "ben affleck", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMzczNzNiMDAtMmUzZS00MTkwLWIwOTYtNmYyNjg3MTVkNThhXkEyXkFqcGdeQXVyMjA4MjI5MTA@._SY600_SX400.jpg"},
+  {name: "matt damon", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMTM0NzYzNDgxMl5BMl5BanBnXkFtZTcwMDg2MTMyMw@@._SY600_SX400.jpg"},
+  {name: "morgan freeman", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2023/07/MV5BMTc0MDMyMzI2OF5BMl5BanBnXkFtZTcwMzM2OTk1MQ@@._V1_.jpg"},
+  {name: "Daniel Radcliffe", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BZmE0NzNiNzQtYTVlYS00MjljLWE4MTgtYzYxNjU2NjZkM2M4XkEyXkFqcGdeQXVyNjY5NDgzNjQ@._SY600_SX400.jpg"},
+  {name: "robert de niro", career: "actor", birthDate: "1943-8-17", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2023/10/MV5BMjAwNDU3MzcyOV5BMl5BanBnXkFtZTcwMjc0MTIxMw@@._V1_.jpg"},
+  {name: "jake gyllenhaal", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BNjA0MTU2NDY3MF5BMl5BanBnXkFtZTgwNDU4ODkzMzE@._SY600_SX400.jpg"},
+  {name: "jim carrey", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMTQwMjAwNzI0M15BMl5BanBnXkFtZTcwOTY1MTMyOQ@@._SY600_SX400.jpg"},
+  {name: "daniel craig", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMjEzMjk4NDU4MF5BMl5BanBnXkFtZTcwMDMyNjQzMg@@._SY600_SX400.jpg"},
+  {name: "Vin Diesel", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMjExNzA4MDYxN15BMl5BanBnXkFtZTcwOTI1MDAxOQ@@._SY600_SX400.jpg"},
+  {name: "joseph levitt", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2023/09/MV5BMTY3NTk0NDI3Ml5BMl5BanBnXkFtZTgwNDA3NjY0MjE@._V1_.jpg"},
+  {name: "andrew garfield", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2024/11/MV5BMjE2MjI2OTk1OV5BMl5BanBnXkFtZTgwNTY1NzM4MDI@._V1_.jpg"},
+  {name: "chris pine", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2023/08/MV5BMTM4OTQ4NTU3NV5BMl5BanBnXkFtZTcwNjEwNDU0OQ@@._V1_.jpg"},
+  {name: "Damian Lewis", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2024/10/MV5BMTM2OTcyMDgxMl5BMl5BanBnXkFtZTcwNDU3NTU5OA@@._V1_.jpg"},
+  {name: "jackie chan", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2023/07/MV5BMTk4MDM0MDUzM15BMl5BanBnXkFtZTcwOTI4MzU1Mw@@._V1_.jpg"},
+  {name: "jonah hill", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMTUyNDU0NzAwNl5BMl5BanBnXkFtZTcwMzQxMzIzNw@@._SY600_SX400.jpg"},
+  {name: "michael caine", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2023/07/MV5BMjAwNzIwNTQ4Ml5BMl5BanBnXkFtZTYwMzE1MTUz._V1_.jpg"},
+  {name: "michael douglas", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMTQ3NzMzOTQ3MF5BMl5BanBnXkFtZTcwOTE0MzY1Mw@@._SY600_SX400.jpg"},
+  {name: "hugh jackman", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2023/07/MV5BNDExMzIzNjk3Nl5BMl5BanBnXkFtZTcwOTE4NDU5OA@@._V1_.jpg"},
+  {name: "gerard butler", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMjE4NDMwMzc4Ml5BMl5BanBnXkFtZTcwMDg4Nzg4Mg@@._SY600_SX400.jpg"},
+  {name: "paul walker", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMjIwODc0OTk2Nl5BMl5BanBnXkFtZTcwOTQ5MDA0Mg@@._SY600_SX400.jpg"},
+  {name: "Ben Stiller", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.86 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMjc4NDc3NDkzMl5BMl5BanBnXkFtZTcwMTAyNTQwMw@@._SY600_SX400.jpg"},
+
+]
+
+let femaleActors = [
+  {name: "scarlett johansson", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.73 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMTM3OTUwMDYwNl5BMl5BanBnXkFtZTcwNTUyNzc3Nw@@._SY600_SX400.jpg"},
+  {name: "helena carter", career: "actor", birthDate: "1986-7-21", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMTUzMzUzMDg5MV5BMl5BanBnXkFtZTcwMDA5NDMwNA@@._SY600_SX400.jpg"},  
+  {name: "amanda seyfried", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.73 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMTYwMDYyMDY5Nl5BMl5BanBnXkFtZTcwODkyMjY5Ng@@._SY600_SX400.jpg"},
+  {name: "lily james", career: "actor", birthDate: "1986-7-21", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2024/02/MV5BMTgxMjM2NTAyMV5BMl5BanBnXkFtZTgwOTU4NjU2NDE@._V1_.jpg"},
+  {name: "natalie portman", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.73 m", poster: "https://shahindb.lol/wp-content/uploads/2023/10/MV5BYzU0ZGRhZWItMGJlNy00YzlkLWIzOWYtNDA2NzlhMDg3YjMwXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg"},
+  {name: "kate winslet", career: "actor", birthDate: "1986-7-21", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2023/07/MV5BODgzMzM2NTE0Ml5BMl5BanBnXkFtZTcwMTcyMTkyOQ@@._V1_.jpg"},
+  {name: "anne hathaway", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.73 m", poster: "https://shahindb.lol/wp-content/uploads/2023/07/MV5BMTRhNzQ3NGMtZmQ1Mi00ZTViLTk3OTgtOTk0YzE2YTgwMmFjXkEyXkFqcGdeQXVyNzg5MzIyOA@@._V1_.jpg"},
+  {name: "charlize theron", career: "actor", birthDate: "1986-7-21", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMTk5Mzc4ODU0Ml5BMl5BanBnXkFtZTcwNjU1NTI0Mw@@._SY600_SX400.jpg"},
+  {name: "margot robbie", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.73 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMTgxNDcwMzU2Nl5BMl5BanBnXkFtZTcwNDc4NzkzOQ@@._SY600_SX400.jpg"},
+  {name: "anna kendrick", career: "actor", birthDate: "1986-7-21", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2023/11/MV5BMjIzOTA0OTQyN15BMl5BanBnXkFtZTcwMjE1OTIwMw@@._V1_.jpg"},
+  {name: "elle fanning", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.73 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BOTM3ODNjNTYtNjBhOC00ZTNkLTg4YjAtMzU3M2EyMDhkM2EyXkEyXkFqcGdeQXVyMTk2ODc0MjY@._SY600_SX400.jpg"},
+  {name: "alexandra dario", career: "actor", birthDate: "1986-7-21", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2023/11/MV5BMTY3Nzg2NjA1OF5BMl5BanBnXkFtZTgwMjY5NTU1MzI@._V1_.jpg"},
+  {name: "rosamund pike", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.73 m", poster: "https://shahindb.lol/wp-content/uploads/2023/09/MV5BNDQ5MDIyMjg3NV5BMl5BanBnXkFtZTgwOTU2NTE0NDM@._V1_.jpg"},
+  {name: "emily blunt", career: "actor", birthDate: "1986-7-21", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2023/10/MV5BMTUxNDY4MTMzM15BMl5BanBnXkFtZTcwMjg5NzM2Ng@@._V1_.jpg"},
+  {name: "amy adams", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.73 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BMTg2NTk2MTgxMV5BMl5BanBnXkFtZTgwNjcxMjAzMTI@._SY600_SX400.jpg"},
+  {name: "Emma Watson", career: "actor", birthDate: "1986-7-21", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2024/11/MV5BMTQ3ODE2NTMxMV5BMl5BanBnXkFtZTgwOTIzOTQzMjE@._V1_.jpg"},
+  {name: "jessie buckley", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.73 m", poster: "https://shahindb.lol/wp-content/uploads/2023/11/MV5BNjlmMmQ2MzktMzY3Zi00ZWRiLThiOTAtNDMyYWY2YTBmYzU3XkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg"},
+  {name: "rose byrne", career: "actor", birthDate: "1986-7-21", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2023/08/MV5BMTc0MDA2Njc0OF5BMl5BanBnXkFtZTcwNzc3NDU3Mw@@._V1_.jpg"},
+  {name: "julianne moore", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.73 m", poster: "https://shahindb.lol/wp-content/uploads/2023/11/MV5BMTM5NDI1MjE2Ml5BMl5BanBnXkFtZTgwNDE0Nzk0MDE@._V1_.jpg"},
+  {name: "olivia cooke", career: "actor", birthDate: "1986-7-21", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BOTVkNzI2ZDEtZGEzNy00ZGI0LTkxNDktYTFjZWUyODgyODQ1XkEyXkFqcGdeQXVyNDAzNDk0MTQ@._SY600_SX400.jpg"},
+  {name: "frances dormand", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.73 m", poster: "https://shahindb.lol/wp-content/uploads/2024/02/MV5BMjI3NzgxNjYzOF5BMl5BanBnXkFtZTgwNTIxMjExNzE@._V1_.jpg"},
+  {name: "leslie bibb", career: "actor", birthDate: "1986-7-21", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2024/03/MV5BMTg2NzAzNzE5N15BMl5BanBnXkFtZTcwMjMyODM0MQ@@._V1_.jpg"},
+  {name: "melissa george", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.73 m", poster: "https://shahindb.lol/wp-content/uploads/2023/08/MV5BYzBlOWM2ZGYtYTFkOC00M2Y5LWFhNzMtYWRkZWQ0YWY0Yzk1XkEyXkFqcGdeQXVyMTExNzQ3MzAw._V1_.jpg"},
+  {name: "angelina jolie", career: "actor", birthDate: "1986-7-21", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2021/05/MV5BODg3MzYwMjE4N15BMl5BanBnXkFtZTcwMjU5NzAzNw@@._SY600_SX400.jpg"},
+  {name: "Mary Winstead", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.73 m", poster: "https://shahindb.lol/wp-content/uploads/2023/08/MV5BMGNhZDVjM2MtMGQ2Mi00ZjRmLWJkZDUtYmMzOWZjMWFmNGUxXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"},
+  {name: "carey mulligan", career: "actor", birthDate: "1986-7-21", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2023/12/MV5BNjQ1NGM2ODUtODc3Ny00ZjdhLTljNzEtMmY2M2M2MDY2Y2IzXkEyXkFqcGdeQXVyNzg5MzIyOA@@._V1_.jpg"},
+  {name: "naomi scott", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.73 m", poster: "https://shahindb.lol/wp-content/uploads/2024/10/MV5BMmQ4ZWJmMjQtOGZkMC00ZDY0LTlkNjgtN2I0ZjIyOGE0ODQ5XkEyXkFqcGc@._V1_.jpg"},
+  {name: "emma stone", career: "actor", birthDate: "1986-7-21", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2023/11/MV5BMjI4NjM1NDkyN15BMl5BanBnXkFtZTgwODgyNTY1MjE@._V1_.jpg"},
+  {name: "karen gillan", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.73 m", poster: "https://shahindb.lol/wp-content/uploads/2023/08/MV5BMTQwMDQ0NDk1OV5BMl5BanBnXkFtZTcwNDcxOTExNg@@._V1_.jpg"},
+  {name: "alexis bledel", career: "actor", birthDate: "1986-7-21", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2023/07/MV5BMTc4NTg4ODU0Ml5BMl5BanBnXkFtZTgwOTA1MjUwNDE@._V1_.jpg"},
+  {name: "natalie dormer", career: "actor", birthDate: "1972-11-14 in Minot, North Dakota, USA", height: "1.73 m", poster: "https://shahindb.lol/wp-content/uploads/2024/09/MV5BNjM4NjQwMzE1Ml5BMl5BanBnXkFtZTgwNjg5MTM0NzE@._V1_.jpg"},
+  {name: "jessica chastain", career: "actor", birthDate: "1986-7-21", height: "1.79 m", poster: "https://shahindb.lol/wp-content/uploads/2023/09/MV5BMTU1MDM5NjczOF5BMl5BanBnXkFtZTcwOTY2MDE4OA@@._V1_.jpg"},
+]
+
+let directors = [
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+  {name: "", career: "actor", birthDate: "1972-11-14 in Santa Ana, California, USA", height: "1.83 m", poster: ""},
+  {name: "", career: "actor", birthDate: "1986-7-21 in Minot, North Dakota, USA", height: "1.76 m", poster: ""},
+  
+]
+
+export { preferredMovies, best250Names, best250, movies, maleActors, femaleActors, directors}
