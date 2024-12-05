@@ -12,6 +12,7 @@ export default {
       "sm250": "250px",
       "sm400": "400px",
       "sm450": "450px",
+      "sm500": "500px",
       'sm': '640px',
       'md': '768px',
       'lg': '1024px',

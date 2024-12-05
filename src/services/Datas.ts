@@ -2,6 +2,31 @@
 export interface TypeMovie{
   Title: string;
   Year: string;
+  Rated: string;
+  Released: string;
+  Runtime: string;
+  Genre: string;
+  Director: string;
+  Writer: string;
+  Actors: string;
+  Plot: string;
+  Language: string;
+  Country: string;
+  Awards: string;
+  Poster: string;
+  Ratings: string;
+  Metascore: string;
+  imdbRating: string;
+  imdbVotes: string;
+  imdbID: string;
+  Type: string;
+  DVD: string;
+  BoxOffice: string;
+  Response: string;
+}
+export interface TypePreferredMovie{
+  Title: string;
+  Year: string;
   Runtime: string;
   Director: string;
   Writer: string;
@@ -17,6 +42,7 @@ export interface TypeMovie{
   Type: string;
   BoxOffice: string;
   Response: string;
+  Released: string;
   Resolution: string;
 }
 let preferredMovies = [
@@ -181,6 +207,19 @@ let preferredMovies = [
     "Response":"True",
     "Resolution": "1080p WEB-Dl Full HD"
   }
+]
+
+let preferredSeries = [
+  {"Title":"Arcane","Year":"2021–2024","Rated":"TV-14","Released":"06 Nov 2021","Runtime":"N/A","Genre":"Animation, Action, Adventure","Director":"N/A","Writer":"N/A","Actors":"Hailee Steinfeld, Kevin Alejandro, Jason Spisak","Plot":"Set in Utopian Piltover and the oppressed underground of Zaun, the story follows the origins of two iconic League of Legends champions and the power that will tear them apart.","Language":"English","Country":"United States, France","Awards":"Won 4 Primetime Emmys. 22 wins & 5 nominations total","Poster":"https://m.media-amazon.com/images/M/MV5BOWJhYjdjNWEtMWFmNC00ZjNkLThlZGEtN2NkM2U3NTVmMjZkXkEyXkFqcGc@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"9.0/10"}],"Metascore":"N/A","imdbRating":"9.0","imdbVotes":"293,759","imdbID":"tt11126994","Type":"series","totalSeasons":"2","Response":"True"},
+  {"Title":"Star Wars: Skeleton Crew","Year":"2024–2025","Rated":"TV-PG","Released":"02 Dec 2024","Runtime":"N/A","Genre":"Action, Adventure, Sci-Fi","Director":"N/A","Writer":"Christopher Ford, Jon Watts","Actors":"Jude Law, Nick Frost, Kerry Condon","Plot":"Four kids make a mysterious discovery on their home planet that leads them to get lost in a strange and dangerous galaxy.","Language":"English","Country":"United States","Awards":"N/A","Poster":"https://m.media-amazon.com/images/M/MV5BN2VlZjA3ZTktODEzNC00ZDhlLWExMTQtZmZkNjRhNWJhMWNkXkEyXkFqcGc@._V1_SX300.jpg","Ratings":[],"Metascore":"N/A","imdbRating":"N/A","imdbVotes":"N/A","imdbID":"tt20600980","Type":"series","totalSeasons":"1","Response":"True"},
+  {"Title":"Tracker","Year":"2024–","Rated":"TV-14","Released":"11 Feb 2024","Runtime":"N/A","Genre":"Crime, Drama","Director":"N/A","Writer":"Ben H. Winters","Actors":"Justin Hartley, Abby McEnany, Fiona Rene","Plot":"Colter Shaw travels the country in his old-school RV, helping police and private citizens solve crimes and locate missing persons--until his latest case changes everything.","Language":"English","Country":"United States","Awards":"2 wins & 2 nominations","Poster":"https://m.media-amazon.com/images/M/MV5BZjk4NGY1NmItMzZmYi00OTg4LWIwZjItM2NjZGE2ODBlMzQyXkEyXkFqcGc@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"7.0/10"}],"Metascore":"N/A","imdbRating":"7.0","imdbVotes":"14,828","imdbID":"tt13875494","Type":"series","totalSeasons":"2","Response":"True"},
+  {"Title":"Dune: Prophecy","Year":"2024–","Rated":"TV-MA","Released":"17 Nov 2024","Runtime":"N/A","Genre":"Action, Adventure, Drama","Director":"N/A","Writer":"Diane Ademu-John, Alison Schapker","Actors":"Emily Watson, Olivia Williams, Travis Fimmel","Plot":"TV series set in the 'Dune' universe which centers on the lives of the Bene Gesserit.","Language":"English","Country":"United States","Awards":"N/A","Poster":"https://m.media-amazon.com/images/M/MV5BOTc2YTFiOTItZmRiNi00OWE5LThhOTEtMmZhMTkzYmRiNjIxXkEyXkFqcGc@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"7.6/10"}],"Metascore":"N/A","imdbRating":"7.6","imdbVotes":"3,543","imdbID":"tt10466872","Type":"series","totalSeasons":"1","Response":"True"},
+  {"Title":"From","Year":"2022","Rated":"TV-MA","Released":"20 Feb 2022","Runtime":"N/A","Genre":"Drama, Horror, Mystery","Director":"N/A","Writer":"John Griffin","Actors":"Harold Perrineau, Catalina Sandino Moreno, Eion Bailey","Plot":"Unravel the mystery of a city in middle U.S.A. that imprisons everyone who enters. As the residents struggle to maintain a sense of normality and seek a way out, they must also survive the threats of the surrounding forest.","Language":"English","Country":"United States","Awards":"1 win & 21 nominations","Poster":"https://m.media-amazon.com/images/M/MV5BYzM5ZWMxOGEtZjEyMC00YjQ0LThiYjEtZjVkZGEzN2NlOGEwXkEyXkFqcGc@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"7.8/10"}],"Metascore":"N/A","imdbRating":"7.8","imdbVotes":"108,585","imdbID":"tt9813792","Type":"series","totalSeasons":"4","Response":"True"},
+  {"Title":"Lioness","Year":"2023","Rated":"TV-MA","Released":"23 Jul 2023","Runtime":"N/A","Genre":"Action, Drama, Thriller","Director":"N/A","Writer":"Taylor Sheridan","Actors":"Zoe Saldana, Laysla De Oliveira, Dave Annable","Plot":"CIA operative Joe attempts to balance her personal and professional lives as the tip of the spear in the agency's war on terror.","Language":"English","Country":"United States","Awards":"5 wins & 6 nominations","Poster":"https://m.media-amazon.com/images/M/MV5BOWJmYTFkYTctNWI3ZS00YjhkLTkxMjUtYWM0ZTNiMzc2NTA5XkEyXkFqcGc@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"7.7/10"}],"Metascore":"N/A","imdbRating":"7.7","imdbVotes":"54,133","imdbID":"tt13111078","Type":"series","totalSeasons":"2","Response":"True"},
+  {"Title":"Yellowstone","Year":"2018","Rated":"TV-MA","Released":"20 Jun 2018","Runtime":"60 min","Genre":"Drama, Western","Director":"N/A","Writer":"John Linson, Taylor Sheridan","Actors":"Kevin Costner, Luke Grimes, Wes Bentley","Plot":"A ranching family in Montana faces off against others encroaching on their land.","Language":"English","Country":"United States","Awards":"Nominated for 1 Primetime Emmy. 8 wins & 44 nominations total","Poster":"https://m.media-amazon.com/images/M/MV5BYzE2ODQ0NmQtYmMxMS00MGRlLTgwOGEtYjRkN2FkYmZlN2JlXkEyXkFqcGc@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"8.7/10"}],"Metascore":"N/A","imdbRating":"8.7","imdbVotes":"242,728","imdbID":"tt4236770","Type":"series","totalSeasons":"5","Response":"True"},
+  {"Title":"Landman","Year":"2024","Rated":"TV-MA","Released":"17 Nov 2024","Runtime":"N/A","Genre":"Drama","Director":"N/A","Writer":"Taylor Sheridan, Christian Wallace","Actors":"Billy Bob Thornton, Ali Larter, Jacob Lofland","Plot":"A modern-day tale of fortune seeking in the world of West Texas oil rigs.","Language":"English","Country":"United States","Awards":"N/A","Poster":"https://m.media-amazon.com/images/M/MV5BNTRkY2ZkNzUtMzBlNC00NTc0LWE0ZDQtMWZiNGU5OWEyZGU4XkEyXkFqcGc@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"8.2/10"}],"Metascore":"N/A","imdbRating":"8.2","imdbVotes":"6,114","imdbID":"tt14186672","Type":"series","totalSeasons":"1","Response":"True"},
+  {"Title":"Superman & Lois","Year":"2021–2024","Rated":"TV-PG","Released":"23 Feb 2021","Runtime":"42 min","Genre":"Action, Adventure, Drama","Director":"N/A","Writer":"Todd Helbing, Greg Berlanti","Actors":"Tyler Hoechlin, Elizabeth Tulloch, Alex Garfin","Plot":"The world's most famous superhero and comic books' most famous journalist face the pressures and complexities that come with balancing work, justice, and parenthood in today's society.","Language":"English","Country":"United States","Awards":"4 wins & 22 nominations","Poster":"https://m.media-amazon.com/images/M/MV5BMWU5NmFlYjktMmM1NS00NGMwLWIzN2MtMWQ2YTg0ZWMyNmVjXkEyXkFqcGc@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"7.7/10"}],"Metascore":"N/A","imdbRating":"7.7","imdbVotes":"41,665","imdbID":"tt11192306","Type":"series","totalSeasons":"4","Response":"True"},
+  
 ]
 
 let best250Names = [
@@ -436,7 +475,7 @@ let best250Names = [
   "Dances with Wolves",
 ]
 
-let best250 = [
+let Top250 = [
   {
    "Title": "The Shawshank Redemption",
    "Year": "1994",
@@ -2178,36 +2217,6 @@ let best250 = [
     "Response": "True"
  },
   {
-   "Title": "Sunset Blvd.",
-   "Year": "2012",
-   "Rated": "N/A",
-   "Released": "N/A",
-   "Runtime": "N/A",
-   "Genre": "Drama",
-   "Director": "Ulli Lommel",
-   "Writer": "Ulli Lommel, Franklin D. Williams",
-   "Actors": "Victoria Ullmann",
-   "Plot": "N/A",
-   "Language": "English",
-   "Country": "USA, Germany",
-   "Awards": "N/A",
-   "Poster": "N/A",
-   "Ratings": [
-     {
-       "Source": "Internet Movie Database",
-       "Value": "5.2/10"
-     }
-   ],
-   "Metascore": "N/A",
-   "imdbRating": "5.2",
-   "imdbVotes": "17",
-   "imdbID": "tt2256853",
-   "Type": "movie",
-   "DVD": "N/A",
-   "BoxOffice": "N/A",
-    "Response": "True"
- },
-  {
    "Title": "Paths of Glory",
    "Year": "1957",
    "Rated": "Approved",
@@ -2237,36 +2246,66 @@ let best250 = [
    "BoxOffice": "N/A",
     "Response": "True"
  },
-  {
-   "Title": "The Shining",
-   "Year": "1980",
-   "Rated": "R",
-   "Released": "13 Jun 1980",
-   "Runtime": "146 min",
-   "Genre": "Drama, Horror",
-   "Director": "Stanley Kubrick",
-   "Writer": "Stephen King, Stanley Kubrick, Diane Johnson",
-   "Actors": "Jack Nicholson, Shelley Duvall, Danny Lloyd",
-   "Plot": "A family heads to an isolated hotel for the winter, where a sinister presence influences the father into violence. At the same time, his psychic son sees horrifying forebodings from both the past and the future.",
-   "Language": "English",
-   "Country": "United Kingdom, United States",
-   "Awards": "6 wins & 9 nominations",
-   "Poster": "https://m.media-amazon.com/images/M/MV5BNmM5ZThhY2ItOGRjOS00NzZiLWEwYTItNDgyMjFkOTgxMmRiXkEyXkFqcGc@._V1_SX300.jpg",
-   "Ratings": [
-     {
-       "Source": "Internet Movie Database",
-       "Value": "8.4/10"
-     },
-   ],
-   "Metascore": "66",
-   "imdbRating": "8.4",
-   "imdbVotes": "1,139,463",
-   "imdbID": "tt0081505",
-   "Type": "movie",
-   "DVD": "N/A",
-   "BoxOffice": "$45,634,352",
-    "Response": "True"
- },
+ {
+  "Title": "The Shining ",
+  "Year": "1980",
+  "Rated": "R",
+  "Released": "13 Jun 1980",
+  "Runtime": "146 min",
+  "Genre": "Drama, Horror",
+  "Director": "Stanley Kubrick",
+  "Writer": "Stephen King, Stanley Kubrick, Diane Johnson",
+  "Actors": "Jack Nicholson, Shelley Duvall, Danny Lloyd",
+  "Plot": "A family heads to an isolated hotel for the winter, where a sinister presence influences the father into violence. At the same time, his psychic son sees horrifying forebodings from both the past and the future.",
+  "Language": "English",
+  "Country": "United Kingdom, United States",
+  "Awards": "6 wins & 9 nominations",
+  "Poster": "https://m.media-amazon.com/images/M/MV5BNmM5ZThhY2ItOGRjOS00NzZiLWEwYTItNDgyMjFkOTgxMmRiXkEyXkFqcGc@._V1_SX300.jpg",
+  "Ratings": [
+    {
+      "Source": "Internet Movie Database",
+      "Value": "8.4/10"
+    },
+  ],
+  "Metascore": "66",
+  "imdbRating": "8.4",
+  "imdbVotes": "1,139,463",
+  "imdbID": "tt0081505",
+  "Type": "movie",
+  "DVD": "N/A",
+  "BoxOffice": "$45,634,352",
+   "Response": "True"
+},
+{
+ "Title": "The Shining",
+ "Year": "1980",
+ "Rated": "R",
+ "Released": "13 Jun 1980",
+ "Runtime": "146 min",
+ "Genre": "Drama, Horror",
+ "Director": "Stanley Kubrick",
+ "Writer": "Stephen King, Stanley Kubrick, Diane Johnson",
+ "Actors": "Jack Nicholson, Shelley Duvall, Danny Lloyd",
+ "Plot": "A family heads to an isolated hotel for the winter, where a sinister presence influences the father into violence. At the same time, his psychic son sees horrifying forebodings from both the past and the future.",
+ "Language": "English",
+ "Country": "United Kingdom, United States",
+ "Awards": "6 wins & 9 nominations",
+ "Poster": "https://m.media-amazon.com/images/M/MV5BNmM5ZThhY2ItOGRjOS00NzZiLWEwYTItNDgyMjFkOTgxMmRiXkEyXkFqcGc@._V1_SX300.jpg",
+ "Ratings": [
+   {
+     "Source": "Internet Movie Database",
+     "Value": "8.4/10"
+   },
+ ],
+ "Metascore": "66",
+ "imdbRating": "8.4",
+ "imdbVotes": "1,139,463",
+ "imdbID": "tt0081505",
+ "Type": "movie",
+ "DVD": "N/A",
+ "BoxOffice": "$45,634,352",
+  "Response": "True"
+},
   {
    "Title": "The Great Dictator",
    "Year": "1940",
@@ -2657,36 +2696,66 @@ let best250 = [
    "BoxOffice": "$223,225,679",
     "Response": "True"
  },
-  {
-   "Title": "Joker",
-   "Year": "2019",
-   "Rated": "R",
-   "Released": "04 Oct 2019",
-   "Runtime": "122 min",
-   "Genre": "Crime, Drama, Thriller",
-   "Director": "Todd Phillips",
-   "Writer": "Todd Phillips, Scott Silver, Bob Kane",
-   "Actors": "Joaquin Phoenix, Robert De Niro, Zazie Beetz",
-   "Plot": "Arthur Fleck, a party clown and a failed stand-up comedian, leads an impoverished life with his ailing mother. However, when society shuns him and brands him as a freak, he decides to embrace the life of chaos in Gotham City.",
-   "Language": "English, German",
-   "Country": "United States, Canada, Australia",
-   "Awards": "Won 2 Oscars. 121 wins & 247 nominations total",
-   "Poster": "https://m.media-amazon.com/images/M/MV5BNzY3OWQ5NDktNWQ2OC00ZjdlLThkMmItMDhhNDk3NTFiZGU4XkEyXkFqcGc@._V1_SX300.jpg",
-   "Ratings": [
-     {
-       "Source": "Internet Movie Database",
-       "Value": "8.4/10"
-     },
-   ],
-   "Metascore": "59",
-   "imdbRating": "8.4",
-   "imdbVotes": "1,554,927",
-   "imdbID": "tt7286456",
-   "Type": "movie",
-   "DVD": "N/A",
-   "BoxOffice": "$335,477,657",
-    "Response": "True"
- },
+ {
+  "Title": "Joker ",
+  "Year": "2019",
+  "Rated": "R",
+  "Released": "04 Oct 2019",
+  "Runtime": "122 min",
+  "Genre": "Crime, Drama, Thriller",
+  "Director": "Todd Phillips",
+  "Writer": "Todd Phillips, Scott Silver, Bob Kane",
+  "Actors": "Joaquin Phoenix, Robert De Niro, Zazie Beetz",
+  "Plot": "Arthur Fleck, a party clown and a failed stand-up comedian, leads an impoverished life with his ailing mother. However, when society shuns him and brands him as a freak, he decides to embrace the life of chaos in Gotham City.",
+  "Language": "English, German",
+  "Country": "United States, Canada, Australia",
+  "Awards": "Won 2 Oscars. 121 wins & 247 nominations total",
+  "Poster": "https://m.media-amazon.com/images/M/MV5BNzY3OWQ5NDktNWQ2OC00ZjdlLThkMmItMDhhNDk3NTFiZGU4XkEyXkFqcGc@._V1_SX300.jpg",
+  "Ratings": [
+    {
+      "Source": "Internet Movie Database",
+      "Value": "8.4/10"
+    },
+  ],
+  "Metascore": "59",
+  "imdbRating": "8.4",
+  "imdbVotes": "1,554,927",
+  "imdbID": "tt7286456",
+  "Type": "movie",
+  "DVD": "N/A",
+  "BoxOffice": "$335,477,657",
+   "Response": "True"
+},
+{
+ "Title": "Joker",
+ "Year": "2019",
+ "Rated": "R",
+ "Released": "04 Oct 2019",
+ "Runtime": "122 min",
+ "Genre": "Crime, Drama, Thriller",
+ "Director": "Todd Phillips",
+ "Writer": "Todd Phillips, Scott Silver, Bob Kane",
+ "Actors": "Joaquin Phoenix, Robert De Niro, Zazie Beetz",
+ "Plot": "Arthur Fleck, a party clown and a failed stand-up comedian, leads an impoverished life with his ailing mother. However, when society shuns him and brands him as a freak, he decides to embrace the life of chaos in Gotham City.",
+ "Language": "English, German",
+ "Country": "United States, Canada, Australia",
+ "Awards": "Won 2 Oscars. 121 wins & 247 nominations total",
+ "Poster": "https://m.media-amazon.com/images/M/MV5BNzY3OWQ5NDktNWQ2OC00ZjdlLThkMmItMDhhNDk3NTFiZGU4XkEyXkFqcGc@._V1_SX300.jpg",
+ "Ratings": [
+   {
+     "Source": "Internet Movie Database",
+     "Value": "8.4/10"
+   },
+ ],
+ "Metascore": "59",
+ "imdbRating": "8.4",
+ "imdbVotes": "1,554,927",
+ "imdbID": "tt7286456",
+ "Type": "movie",
+ "DVD": "N/A",
+ "BoxOffice": "$335,477,657",
+  "Response": "True"
+},
   {
    "Title": "Braveheart",
    "Year": "1995",
@@ -2716,35 +2785,6 @@ let best250 = [
    "DVD": "N/A",
    "BoxOffice": "$75,609,945",
     "Response": "True"
- },
-  {
-   "Title": "The Boat",
-   "Year": "2011–2013",
-   "Rated": "TV-14",
-   "Released": "17 Jan 2011",
-   "Runtime": "75 min",
-   "Genre": "Adventure, Drama, Mystery",
-   "Director": "N/A",
-   "Writer": "Iván Escobar, Álex Pina",
-   "Actors": "Juanjo Artero, Mario Casas, Blanca Suárez",
-   "Plot": "A global cataclysm, caused by a fatal accident in Geneva (Switzerland) during the implementation of the particle accelerator will lead to crew of vessel-school Estrella Polar to live the adventure of their lives.",
-   "Language": "Spanish",
-   "Country": "Spain",
-   "Awards": "1 win & 4 nominations",
-   "Poster": "https://m.media-amazon.com/images/M/MV5BNzEyZjY0YzAtNmFlYi00Yjk1LWE4MWUtMjZmNWUyMmU2N2UzXkEyXkFqcGc@._V1_SX300.jpg",
-   "Ratings": [
-     {
-       "Source": "Internet Movie Database",
-       "Value": "7.2/10"
-     }
-   ],
-   "Metascore": "N/A",
-   "imdbRating": "7.2",
-   "imdbVotes": "5,401",
-   "imdbID": "tt1788634",
-   "Type": "series",
-   "totalSeasons": "3",
-   "Response": "True"
  },
   {
    "Title": "Avengers: Endgame",
@@ -4098,7 +4138,7 @@ let best250 = [
  },
   {
    "Title": "1917",
-   "Year": "2019",
+   "Year": "2020",
    "Rated": "R",
    "Released": "10 Jan 2020",
    "Runtime": "119 min",
@@ -11941,6 +11981,131 @@ let movies = [
 "Seventeen",
 ]
 
+let MovieGenres = [
+  {
+    "count": 3723,
+    "genre": "Drama"
+  },
+  {
+    "count": 2954,
+    "genre": "Action"
+  },
+  {
+    "count": 2705,
+    "genre": "Adventure"
+  },
+  {
+    "count": 1435,
+    "genre": "Comedy"
+  },
+  {
+    "count": 1289,
+    "genre": "Crime"
+  },
+  {
+    "count": 790,
+    "genre": "Documentary"
+  },
+  {
+    "count": 759,
+    "genre": "Family"
+  },
+  {
+    "count": 734,
+    "genre": "Animation"
+  },
+  {
+    "count": 343,
+    "genre": "Fantasy"
+  },
+  {
+    "count": 243,
+    "genre": "History"
+  },
+  {
+    "count": 176,
+    "genre": "Horror"
+  },
+  {
+    "count": 113,
+    "genre": "Romance"
+  },
+  {
+    "count": 97,
+    "genre": "Western"
+  },
+  {
+    "count": 15,
+    "genre": "Science Fiction"
+  },
+  {
+    "count": 3,
+    "genre": "War"
+  },
+]
+
+let SerieGenres = [
+  {
+    "count": 3723,
+    "genre": "Drama"
+  },
+  {
+    "count": 2954,
+    "genre": "Action"
+  },
+  {
+    "count": 2705,
+    "genre": "Adventure"
+  },
+  {
+    "count": 1435,
+    "genre": "Comedy"
+  },
+  {
+    "count": 1289,
+    "genre": "Crime"
+  },
+  {
+    "count": 790,
+    "genre": "Documentary"
+  },
+  {
+    "count": 759,
+    "genre": "Family"
+  },
+  {
+    "count": 734,
+    "genre": "Animation"
+  },
+  {
+    "count": 343,
+    "genre": "Fantasy"
+  },
+  {
+    "count": 243,
+    "genre": "History"
+  },
+  {
+    "count": 176,
+    "genre": "Horror"
+  },
+  {
+    "count": 113,
+    "genre": "Romance"
+  },
+  {
+    "count": 97,
+    "genre": "Western"
+  },
+  {
+    "count": 15,
+    "genre": "Science Fiction"
+  },
+  {
+    "count": 3,
+    "genre": "War"
+  },
+]
 
 // actors
 export interface TypeActor{
@@ -12108,4 +12273,4 @@ let directors = [
   
 ]
 
-export { preferredMovies, best250Names, best250, movies, maleActors, femaleActors, directors}
+export { preferredMovies, preferredSeries, best250Names, Top250, movies, MovieGenres, SerieGenres, maleActors, femaleActors, directors}
