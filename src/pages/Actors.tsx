@@ -1,13 +1,13 @@
 import { useParams } from "react-router-dom";
 
-import { Actor, maleActors, femaleActors, directors } from "../services/Datas";
+import { TypeActor, maleActors, femaleActors, directors } from "../services/Datas";
 
 interface Props {
   type: string;
 }
 
 export default function Actors({ type }: Props) {
-  let results: Actor[] = [];
+  let results: TypeActor[] = [];
   let x = useParams();
   console.log(x);
 

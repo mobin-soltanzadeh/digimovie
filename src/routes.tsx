@@ -4,7 +4,7 @@ import HomePage from "./pages/HomePage";
 import MovieWithGenre from "./pages/MovieWithGenre";
 import Actors from "./pages/Actors";
 import Navigator from "./pages/Navigator";
-import Best250Movies from "./pages/Top250Movies";
+import Top250Movies from "./pages/Top250Movies";
 import Application from "./pages/Application";
 
 let routes: RouteObject[] = [
@@ -37,7 +37,7 @@ let routes: RouteObject[] = [
 
       { path: "favorites", element: <h1>favorites</h1> },
       { path: "notifications", element: <h1>notifications</h1> },
-      { path: "top-250-movies", element: <Best250Movies /> },
+      { path: "top-250-movies", element: <Top250Movies /> },
     ],
   },
   { path: "digimovie/application", element: <Application /> },

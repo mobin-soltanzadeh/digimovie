@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import Skeleton from "../Skeleton";
 import { useState } from "react";
 
-import { TypeMovie } from "../../services/Datas";
+import { TypePreferredMovie } from "../../services/Datas";
 
 interface Props{
-  movie: TypeMovie;
+  movie: TypePreferredMovie;
   to?: string;
 }
 

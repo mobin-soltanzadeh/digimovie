@@ -3,7 +3,7 @@ import { Navigation, Autoplay, Keyboard } from "swiper/modules";
 
 import '../../node_modules/swiper/swiper-bundle.css';
 
-import { preferredMovies } from "../services/Datas";
+import { preferredMovies, TypePreferredMovie } from "../services/Datas";
 import { useState } from "react";
 import ActiveSlide from "./Slider/ActiveSlide";
 import InActiveSlide from "./Slider/InActiveSlide";
@@ -38,7 +38,7 @@ export default function Slider() {
       <Swiper centeredSlides={true} speed={700} loop={true} navigation={true} autoplay={{ delay: 5000, disableOnInteraction: false }} keyboard={{ enabled: true }} modules={[ Keyboard, Navigation, Autoplay ]} >
         
       {
-        preferredMovies.map((movie, index) => (
+        preferredMovies.map((movie: TypePreferredMovie, index) => (
           <SwiperSlide key={movie.Title}>
             <div className="slider flex justify-center items-center z-50">
 
