@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+      font-family: Mangiola;
+      src: url(../public/font/Mangiola/Mangiola-Regular.ttf);
+  }
+  @font-face {
+      font-family: Dana1;
+      src: url(../public/font/Dana/Dana-Light.woff2);
+  }
+  @font-face {
+      font-family: Dana2;
+      src: url(../public/font/Dana/Dana-Regular.woff2);
+  }
+  @font-face {
+      font-family: Dana3;
+      src: url(../public/font/Dana/Dana-Medium.woff2);
+  }
+  @font-face {
+      font-family: Dana4;
+      src: url(../public/font/Dana/Dana-DemiBold.woff2);
+  }
+  @font-face {
+      font-family: Dana5;
+      src: url(../public/font/Dana/DanaFaNum-Medium.woff2);
+  }
+}

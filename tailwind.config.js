@@ -20,6 +20,14 @@ export default {
       '2xl': '1536px',
     },
     extend: {
+      fontFamily: {
+        "mangiola": "Mangiola",
+        "dana-light" : "Dana1",
+        "dana-regular" : "Dana2",
+        "dana-medium" : "Dana3",
+        "dana-demibold" : "Dana4",
+        "dana-fa-medium" : "Dana5",
+      },
       spacing: {
         "250": "1000px",
         "300": "1200px",
