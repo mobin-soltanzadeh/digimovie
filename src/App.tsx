@@ -9,7 +9,7 @@ function App() {
   const router = useRoutes(routes);
 
   useEffect(() => {
-    Aos.init({duration: 2000})
+    Aos.init({duration: 2000, anchorPlacement: 'bottom-bottom'})
   }, [])
 
   return(

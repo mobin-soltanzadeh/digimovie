@@ -25,7 +25,7 @@ export default function MovieCard({ movie, type, dataAos, dataAosDuration }: Pro
   let index = Top250.findIndex(bestMovie => bestMovie.Title === movie.Title ) + 1;
 
   if(type) return (
-    <div data-aos={dataAos} data-aos-duration={dataAosDuration} className="relative flex justify-start items-center w-4/5 mx-auto sm500:w-full sm500:h-56 bg-white dark:bg-neutral-800 rounded-lg">
+    <div data-aos={dataAos} data-aos-duration={dataAosDuration || "2000"} className="relative flex justify-start items-center w-4/5 mx-auto sm500:w-full sm500:h-56 bg-white dark:bg-neutral-800 rounded-lg">
       
       <div className="flex flex-col sm500:flex-row h-full justify-between items-start gap-x-3 sm:500p-3 lg:p-5 group">
 
