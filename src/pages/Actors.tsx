@@ -9,12 +9,25 @@ interface Props {
 
 export default function Actors({ type }: Props) {
   let results: TypeActor[] = [];
+  let title = "All Best"
 
-  if (type === "all") results = maleActors.concat(femaleActors).sort(); 
-  else if (type === "male") results = maleActors.sort();
-  else if (type === "female") results = femaleActors.sort();
-  else if (type === "directors") results = directors.sort();
-  else results = [];
+  if (type === "all") {
+    results = maleActors.concat(femaleActors).sort();
+    title = "Best Artists";
+
+  } else if (type === "male") {
+    results = maleActors.sort();
+    title = "Best Actors";
+
+  } else if (type === "female") {
+    results = femaleActors.sort();
+    title = "Best Actress";
+
+  } else if (type === "directors") {
+    results = directors.sort();
+    title = "Best Directors";
+
+  } else results = [];
 
   results = results.sort((a, b) => a.name.charCodeAt(0) - b.name.charCodeAt(0) )
 
@@ -25,7 +38,7 @@ export default function Actors({ type }: Props) {
       <div className="flex flex-col gap-y-4 ">
         <div className="relative flex justify-center items-center font-semibold w-full h-auto bg-white dark:bg-neutral-800 rounded-lg overflow-hidden">
             <span className="absolute top-0 left-0 flex justify-center items-center gap-x-1 text-sm sm:text-base lg:text-xl text-nowrap pl-4 pr-20 py-2 lg:py-4 bg-gradient-to-r from-zinc-400 dark:from-zinc-950 to-transparent self-start rounded-lg"><span className="text-base sm:textlg xl:text-2xl">{results.length}</span> member</span>
-            <h1 className="text-sm sm:text-base lg:text-xl py-2 lg:py-4">best {}</h1>
+            <h1 className="text-sm sm:text-base lg:text-xl py-2 lg:py-4">{title}</h1>
         </div>
 
         <div className="grid grid-cols-1 sm250:grid-cols-2 sm500:grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 w-full mx-auto md:mx-0">

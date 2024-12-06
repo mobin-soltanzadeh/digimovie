@@ -14,7 +14,6 @@ interface Props{
   dataAosDuration?: string;
 }
 
-
 export default function MovieCard({ movie, type, dataAos, dataAosDuration }: Props) {
   let resolution = null;
   
