@@ -1,0 +1,6 @@
+.instaLogo:hover {
+    background: linear-gradient(45deg ,#eab308, #eab308, #ea580c, #dc2626, #dc2626,#c026d3, #c026d3);
+}
+.dark .instaLogo:hover {
+    background: linear-gradient(45deg ,#eab308, #eab308, #ea580c, #dc2626, #dc2626,#c026d3, #c026d3);
+}
