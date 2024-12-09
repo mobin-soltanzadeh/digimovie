@@ -1,49 +1,61 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import Skeleton from "./Skeleton";
+import ImdbLogo from "./ImdbLogo";
 import { Top250, TypeMovie } from "../services/Datas";
+import { addLikedMovies, deleteLikedMovies, isMovieLiked, votesConverter } from "../services/functions";
+
 
 import { MdLanguage } from "react-icons/md";
 import { LuCalendarClock } from "react-icons/lu";
 import { LuAlarmClock } from "react-icons/lu";
 import { PiFolderOpen } from "react-icons/pi";
+import { LiaTheaterMasksSolid } from "react-icons/lia";
+import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 
 interface Props{
   movie: TypeMovie,
-  type?: any;
+  type?: "best";
   dataAos?: string;
   dataAosDuration?: string;
+
+  reset?: boolean;
+  setReset?: any;
 }
 
-export default function MovieCard({ movie, type, dataAos, dataAosDuration }: Props) {
-  let resolution = null;
-  
-  if(+movie.imdbVotes % 5 === 0) resolution = "1080p BluRay";
-  else if(+movie.imdbVotes % 2 === 0) resolution = "2160 4k BluRay";
-  else if(+movie.imdbVotes % 3 === 0) resolution = "1080p WEB-DL Full Hd";
-  else resolution = "2160p 4K WEB-DL";
+export default function MovieCard({ movie, type, dataAos, dataAosDuration, reset, setReset }: Props) {
+  const [isLoading, setLoading] = useState<Boolean>(true)
 
   let index = Top250.findIndex(bestMovie => bestMovie.Title === movie.Title ) + 1;
+  const [isLike, setLike] = useState<boolean>(isMovieLiked(movie.Title));
 
+  const like = () => {
+    isLike ? deleteLikedMovies(movie.Title) : addLikedMovies(movie.Title);
+    setLike(!isLike);
+    setReset(!reset)
+  }
+ 
   if(type) return (
-    <div data-aos={dataAos} data-aos-duration={dataAosDuration || "2000"} className="relative flex justify-start items-center w-4/5 mx-auto sm500:w-full sm500:h-56 bg-white dark:bg-neutral-800 rounded-lg">
+    <div data-aos={dataAos || ""} data-aos-duration={dataAosDuration || "2000"} className="relative flex justify-start items-center w-4/5 mx-auto sm500:w-full sm500:h-56 bg-white dark:bg-neutral-800 rounded-lg">
       
       <div className="flex flex-col sm500:flex-row h-full justify-between items-start gap-x-3 sm:500p-3 lg:p-5 group">
 
-        <Link to={"/digimovie/movies/"+movie.Title} className="h-full aspect-[6/8]" >
-          <img src={movie.Poster.replace("SX1000", "SX1000")} alt="movie-image" className="w-full h-full rounded-t-lg sm500:rounded-lg" />
+        <Link to={"/digimovie/movie/title="+movie.Title} className="h-full aspect-[6/8]" >
+          <img src={movie.Poster} alt="movie-image" className="w-full h-full rounded-t-lg sm500:rounded-lg" />
         </Link>
         
         <div className="flex flex-col justify-center gap-y-2 w-full h-full p-3 sm500:p-0">
-          <Link to={"/digimovie/movies/"+movie.Title}><h2 className="font-semibold text-base sm:text-xl">{movie.Title} {movie.Year}</h2></Link>
+          <Link to={"/digimovie/movie/title="+movie.Title}><h2 className="font-semibold text-base sm:text-xl">{movie.Title} {movie.Year}</h2></Link>
 
           <div className="flex justify-start items-center text-orange-400">
-            <a target="_blank" href={"https://www.imdb.com/title/"+movie.imdbID}> <svg className="w-14 px-2 py-1 bg-orange-400 fill-white rounded-lg mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 921 372" id="imdb_logo"> <path d="M704.86 0h91.47c.08 39.56-.16 79.13.12 118.7 3.31-2.78 6.32-5.9 9.52-8.8 6.88-5.83 14.82-10.56 23.53-13.06 9.9-2.82 20.26-3.98 30.54-3.66 14.4.44 29.28 3.86 40.93 12.72 10.58 8.44 17.6 21.47 18.34 35.05.99 14.99.99 30.03 1 45.06v85.98c-.04 18.35.16 36.9-3.44 54.98-1.82 9.83-6.91 18.92-14.19 25.74-10.48 10.51-24.82 16.86-39.59 17.94-13.45.9-27.31-.68-39.72-6.12-10.64-4.91-19.5-12.9-27.09-21.69-2.23 7.69-3.52 15.67-6.22 23.21-28.35.35-56.73.04-85.09.15-.23-9.4-.07-18.81-.11-28.21V0m100.51 146.59c-3.9.93-6.62 4.47-7.22 8.33-1.91 10.56-1.63 21.37-1.78 32.07.03 31.67-.03 63.33.03 95 .21 8.61.11 17.31 1.79 25.79.76 4.27 3.41 8.57 7.85 9.73 5.83 1.37 12.41.33 17.35-3.15 2.68-1.87 3.29-5.29 3.58-8.32 2.15-20.27 1.68-40.68 1.72-61.03-.06-22.01.1-44.01-.09-66.02-.33-8.1-.19-16.37-2.38-24.24-.86-3.48-3.93-5.82-7.14-7.01-4.33-1.63-9.19-2.4-13.71-1.15zM127.5 3.28c41.07-.01 82.14.07 123.21-.04 6.45 39.78 11.4 79.78 17.49 119.62 2.27 15.86 4.74 31.69 6.88 47.56 1.81-.26 1.67-2.1 1.96-3.39 6.89-54.59 14.13-109.13 20.99-163.72 41.4-.04 82.8-.02 124.2-.01-.01 122.02.01 244.05-.01 366.08-27.62.04-55.24-.01-82.86.02-.07-77.77-.25-155.55-.2-233.32.02-2.91.04-5.82-.2-8.72-1.84 2.46-1.56 5.69-2.09 8.58-10.44 77.82-20.95 155.63-31.4 233.45-19.67.05-39.34-.09-59.01.07-11.19-75.41-21.93-150.89-32.94-226.32-.77-3.59-.32-7.65-2.48-10.79-.46 26.87-.06 53.76-.21 80.63l-.18 156.43c-27.7-.04-55.41-.01-83.11-.01-.03-122.04.05-244.08-.04-366.12zm328.63-.04c32.61.24 65.23-.26 97.85.31 19.11.63 38.35 1.23 57.16 4.97 15.68 3.33 31.46 9.91 42.11 22.34 7.97 9.05 13.49 20.3 15.5 32.21 1.53 9.22 2.03 18.56 2.53 27.88 1.15 29.03.84 58.09.88 87.13 0 24.98-.01 49.96 0 74.94-.1 21.28-.05 42.66-2.98 63.78-1.65 12.19-6.24 24.43-15.18 33.17-11.41 10.74-27.03 16-42.45 17.22-19.14 1.61-38.36 2.41-57.57 2.2-32.61.01-65.23-.02-97.84.02.02-122.06.05-244.11-.01-366.17m94.89 62.67v240.32c7.4-.08 15.36-.3 21.78-4.43 5.17-3.42 5.83-10.12 6.76-15.7.73-7 1.47-14.03 1.45-21.08.09-55.68.08-111.37 0-167.05 0-6.06-.45-12.14-1.37-18.13-.82-5.01-4.14-9.66-8.91-11.57-6.27-2.4-13.1-2.34-19.71-2.36zM.85 5.68c31.65-.11 63.3.02 94.95-.07 0 122.13.03 244.26-.01 366.39H.87C.84 249.89.87 127.79.85 5.68z"></path> </svg></a>
+            <ImdbLogo imdb={movie.imdbID} />
             <span> <span className="text-lg font-semibold">{movie.imdbRating}</span>/10</span> 
           </div>
         
           <div className="flex flex-col justify-center gap-y-1">
             <span className="flex justify-start items-center gap-x-1 text-xs sm:text-sm"><LuCalendarClock color="#fb923c" size={"18px"} /> Released : {movie.Released}</span>
-            <span className="flex justify-start items-center gap-x-1 text-xs sm:text-sm"><LuAlarmClock color="#fb923c" size={"18px"}/> Runtime : {movie.Runtime}</span>
+            <span className="flex justify-start items-center gap-x-1 text-xs sm:text-sm"><LuAlarmClock color="#fb923c" size={"18px"}/> Duration : {movie.Runtime}</span>
             <span className="flex justify-start items-center gap-x-1 text-xs sm:text-sm"><svg className="w-4 h-4 ml-0.5 fill-orange-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 162.978 162.978" id="circular_age"> <path d="M162.978 101.101l-19.611-39.224-19.611 39.224h13.209c-8.315 25.958-32.633 44.826-61.324 44.826-35.529 0-64.438-28.908-64.438-64.438 0-35.529 28.909-64.438 64.438-64.438 27.376 0 50.764 17.19 60.077 41.325l6.44-12.882c-12.813-23.595-37.82-39.649-66.512-39.649C33.936 5.844 0 39.778 0 81.489c0 41.708 33.936 75.645 75.645 75.645 34.924 0 64.331-23.809 72.997-56.032h14.336z"></path> <path d="M35.486 96.582h7.084l2.15-7.749h8.645l2.332 7.749h7.345L53.68 66.39h-8.96l-9.234 30.192zM47.494 77.32c.493-1.749.941-4.034 1.39-5.823h.088c.449 1.789.988 4.036 1.527 5.823l1.882 6.413h-6.675l1.788-6.413zm34.243-5.598c3.311 0 5.371.583 7.029 1.294l1.436-5.466c-1.479-.715-4.482-1.48-8.377-1.48-9.901 0-17.2 5.731-17.253 15.769-.042 4.434 1.48 8.372 4.26 10.978 2.778 2.688 6.763 4.076 12.277 4.076 3.98 0 7.975-.985 10.075-1.701V79.289H79.943v5.331h4.665v6.313c-.542.274-1.798.449-3.365.449-5.604 0-9.497-3.677-9.497-9.904 0-6.534 4.296-9.756 9.991-9.756zm33.438.271v-5.598H96.539v30.187h19.265v-5.593h-12.41v-7.168h11.113v-5.56h-11.113v-6.268z"></path> </svg> Rating : {movie.Rated}</span>
             <span className="flex justify-start items-center gap-x-1 text-xs sm:text-sm"><PiFolderOpen color="#fb923c" size={"18px"}/> Genre : {movie.Genre}</span>
             <span className="flex justify-start items-center gap-x-1 text-xs sm:text-sm"><MdLanguage color="#fb923c" size={"18px"} /> Country : {movie.Country}</span>
@@ -62,29 +74,52 @@ export default function MovieCard({ movie, type, dataAos, dataAosDuration }: Pro
   )
 
   return (
-    <div className="flex justify-between items-center w-full h-80 bg-zinc-700 rounded-lg">
+    <div className="flex flex-col md:flex-row justify-center items-center gap-4 w-4/5 mx-auto sm500:w-full pt-4 px-2 lg:p-4 bg-white dark:bg-neutral-800 rounded-lg">
+      <Link to={"/digimovie/movie/"+movie.Title} className="cover h-80 sm400:h-96 aspect-[4/6] mx-auto md:mx-0 border-x-[2px] border-t-[3px] border-b border-orange-400 border-b-orange-400/80 rounded-lg">
+        <img src={movie?.Poster} alt={movie?.Title} style={{width: isLoading ? "0px" : "100%", height: isLoading ? "0px" : "100%"}} className="object-cover rounded-lg" onLoad={() => setLoading(false)} /> 
+        { isLoading && <Skeleton type="movie" /> }
+      </Link>
+
+      <div className="meta flex flex-col justify-between items-start gap-y-5 w-full overflow-hidden">
       
-      <div className="flex h-full justify-between items-start gap-x-3 p-5 group">
+        <div className="meta-head flex justify-between items-center w-full">
+          <Link to={"/digimovie/movie/"+movie.Title} className="leftSide text-base md:text-xl lg:text-2xl text-nowrap">{movie?.Title} {movie?.Year}</Link>
+      
+          <div className="rightSide flex justify-center items-center gap-x-2 lg:gap-x-4">
+            <div onClick={like}>
+              <div className="w-6 h-6 lg:w-7 lg:h-7 cursor-pointer">{isLike ? <IoMdHeart size={"100%"} color="#e11d48" /> : <IoMdHeartEmpty size={"100%"} />}</div>
+            </div>
 
-        <Link to={"/digimovie/movies/"+movie.Title} className="h-full aspect-[6/8]" ><img src={movie.Poster.replace("SX1000", "SX1000")} alt="movie-image" className="w-full h-full rounded-lg" /></Link>
-        
-        <div className="flex flex-col justify-between gap-y-4 w-full h-full">
-          <h2 className="font-semibold text-xl">{movie.Title} {movie.Year}</h2>
-
-          <div className="flex flex-col">
-            <span>Resolution : {resolution}</span>
-            <span>Runtime : {movie.Runtime}</span>
-            <span>Genre : {movie.Director}</span>
-            <span>Actors : {movie.Actors}</span>
-            <span>Country : {movie.Country}</span>
-            <span>Language : {movie.Language}</span>
-            <span>imdbRating : {movie.imdbRating}</span>
-            <span>Released : {movie.Released}</span>
+            <div className="hidden sm500:flex flex-col justify-center items-center gap-y-1">
+              <span><span className="text-xl text-orange-400 font-semibold">{movie?.imdbRating}</span>/10</span>
+              <span className="w-full h-0.5 bg-orange-500 dark:bg-orange-400"></span>
+              <span className="text-nowrap text-center">{votesConverter(movie?.imdbVotes)}</span>
+            </div>
           </div>
-
-          <h3 className="text-sm line-clamp-2">{movie.Plot}</h3>
+        </div>
+      
+        <div className="meta-main w-full">
+          <ul className="flex flex-wrap gap-y-3 text-sm md:text-base">
+            { movie?.Genre !== "N/A" && <li className="w-full flex justify-start items-center gap-x-2 line-clamp-1"> <div className="w-5 h-5 text-orange-400"> <PiFolderOpen size={"100%"} /> </div> Genre : {movie?.Genre}</li> }
+            { movie?.Runtime !== "N/A" && <li className="w-full flex justify-start items-center gap-x-2 line-clamp-1"> <div className="w-5 h-5 text-orange-400"> <LuAlarmClock size={"100%"} /> </div> Duration : {movie?.Runtime}</li> }
+            { movie?.Director !== "N/A" && <li className="w-full flex justify-start items-center gap-x-2 line-clamp-1"><svg className="w-5 h-5 fill-orange-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.002 512.002" id="actor"> <path d="M475.847 494.853l-15.333-106a15 15 0 00-13.08-12.748l-101.432-12.024v-2.282c0-7.646-5.834-14.745-15-15.007v-42.106c28.821-23.154 45.252-57.559 44.985-94.552 5.83-2.057 10.015-7.6 10.015-14.134v-75c0-6.244-3.818-11.594-9.245-13.852l-.755-42.291C375.923 29.082 346.794 0 311.001 0h-190c-8.284 0-15 6.716-15 15v29c0 25.152 10.149 47.975 26.563 64.6-3.961 2.7-6.563 7.245-6.563 12.4v75c0 6.529 4.179 12.068 10.002 14.129-.288 37.538 16.581 71.729 44.997 94.558v42.105c-9.14.261-15 7.338-15 15.007v2.47L64.124 377.118a14.999 14.999 0 00-12.972 12.761l-15 105c-1.172 8.201 4.527 15.799 12.728 16.971 8.209 1.17 15.799-4.534 16.97-12.729l13.382-93.671 86.769-10.944v41.767c0 8.284 6.716 15 15 15 23.04 0 56.744-5.569 75-21.558 18.358 16.077 52.256 21.558 75 21.558 8.284 0 15-6.716 15-15V394.29l86.469 10.251 13.685 94.606c1.188 8.212 8.81 13.884 16.993 12.698 8.199-1.186 13.885-8.793 12.699-16.992zM158.343 181a14.986 14.986 0 00-2.342-.833V136h200v45h-66.097l-.832-3.564C285.44 161.871 271.741 151 255.758 151c-15.474 0-29.066 10.442-33.053 25.394L221.477 181zM136.001 30h175c18.109 0 34.653 14.068 35.002 35.268l.728 40.732h-148.73c-34.187 0-62-27.813-62-62zm30.011 181h66.989a15 15 0 0014.494-11.135l4.198-15.741c1.12-4.202 7.169-4.141 8.165.128l3.537 15.156A15 15 0 00278.002 211h67.988c-.033 48.673-38.813 89.737-90.061 89.998-49.593-.039-89.899-40.111-89.917-89.998zm134.989 111.304v26.383c-15.25 2.273-32.902 7.125-45 17.356-12.098-10.23-29.75-15.083-45-17.355v-26.383c28.693 11.595 61.286 11.604 90-.001zm-105 98.015v-43.104c62.041 4.908 58.749 36.372 0 43.104zm120 0c-59.368-6.803-61.423-38.444 0-43.145z"></path> <path d="M241.001 270.343h30c8.284 0 15-6.716 15-15s-6.716-15-15-15h-30c-8.284 0-15 6.716-15 15s6.716 15 15 15z"></path> </svg> Director : {movie?.Director}</li> }
+            { movie?.Rated !== "N/A" && <li className="w-full flex justify-start items-center gap-x-2 line-clamp-1"><svg className="w-5 h-5 fill-orange-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 162.978 162.978" id="circular_age"> <path d="M162.978 101.101l-19.611-39.224-19.611 39.224h13.209c-8.315 25.958-32.633 44.826-61.324 44.826-35.529 0-64.438-28.908-64.438-64.438 0-35.529 28.909-64.438 64.438-64.438 27.376 0 50.764 17.19 60.077 41.325l6.44-12.882c-12.813-23.595-37.82-39.649-66.512-39.649C33.936 5.844 0 39.778 0 81.489c0 41.708 33.936 75.645 75.645 75.645 34.924 0 64.331-23.809 72.997-56.032h14.336z"></path> <path d="M35.486 96.582h7.084l2.15-7.749h8.645l2.332 7.749h7.345L53.68 66.39h-8.96l-9.234 30.192zM47.494 77.32c.493-1.749.941-4.034 1.39-5.823h.088c.449 1.789.988 4.036 1.527 5.823l1.882 6.413h-6.675l1.788-6.413zm34.243-5.598c3.311 0 5.371.583 7.029 1.294l1.436-5.466c-1.479-.715-4.482-1.48-8.377-1.48-9.901 0-17.2 5.731-17.253 15.769-.042 4.434 1.48 8.372 4.26 10.978 2.778 2.688 6.763 4.076 12.277 4.076 3.98 0 7.975-.985 10.075-1.701V79.289H79.943v5.331h4.665v6.313c-.542.274-1.798.449-3.365.449-5.604 0-9.497-3.677-9.497-9.904 0-6.534 4.296-9.756 9.991-9.756zm33.438.271v-5.598H96.539v30.187h19.265v-5.593h-12.41v-7.168h11.113v-5.56h-11.113v-6.268z"></path> </svg> Rating : {movie?.Rated}</li> }
+            { movie?.Country !== "N/A" && <li className="w-full flex justify-start items-center gap-x-2 line-clamp-1"> <div className="w-5 h-5 text-orange-400"> <MdLanguage size={"100%"} /> </div> Country : {movie?.Country}</li> }
+            { movie?.Actors !== "N/A" && <li className="w-full flex justify-start items-center gap-x-2 line-clamp-1"> <div className="w-5 h-5 text-orange-400"> <LiaTheaterMasksSolid size={"100%"} /> </div> Stars : {movie?.Actors}</li> }
+          </ul>
         </div>
 
+        <div className="meta-footer flex flex-col gap-y-3 w-full">
+          <p className="line-clamp-1">{movie?.Plot}</p>
+          <div className="flex justify-between items-center">
+            <div className="metaScore leftside flex justify-center items-center gap-x-1.5">
+              <div className={`flex justify-center items-center w-6 h-6 ${Number(movie?.Metascore) >= 80 ? "bg-emerald-400 dark:bg-green-500" : "bg-orange-400"} rounded-md`} >{movie?.Metascore === "N/A" ? movie?.Title.charCodeAt(0) : movie?.Metascore}</div>
+              <svg className="w-5 h-5 rotate-90" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.4 29.7" id="metacritic"><title>Page 1</title> <path d="M29.4 14.8c0 8.2-6.7 14.9-14.9 14.9S-.3 23-.3 14.8C-.3 6.7 6.3 0 14.5 0s14.9 6.7 14.9 14.8" fill="#ffcc34"></path> <path d="M26.5 14.8c0 6.6-5.3 11.9-11.9 11.9S2.7 21.4 2.7 14.8 8 2.9 14.6 2.9c6.5 0 11.9 5.3 11.9 11.9" fill="#333"></path> <path d="M6.8 18.9c-1-1-1.9-1.9-2.7-2.6l2.2-2.2 1.2 1 .1-.1c-.2-.8-.3-2.3 1.1-3.7 1.1-1.1 2.5-1.4 3.7-.8-.1-.8-.1-1.5.1-2.1.2-.7.6-1.4 1.2-2 1.6-1.6 3.9-1.7 6.4.8l4.9 4.9-2.5 2.5-4.5-4.5c-1.2-1.2-2.3-1.5-3.1-.7-.6.6-.6 1.4-.3 2.1.1.2.4.5.6.7l4.9 4.9-2.5 2.5L13 15c-1-1-2.1-1.4-3-.5-.7.7-.5 1.6-.3 2.1.1.3.3.5.6.8l4.8 4.8-2.5 2.5-5.8-5.8z" fill="#fefefe"></path> <path d="M34.8 13.2c0-1.3 0-2.5-.1-3.4h2.8l.1 1.5h.1c.5-.7 1.4-1.7 3.2-1.7 1.4 0 2.5.7 2.9 1.8.4-.6.9-1 1.4-1.3.6-.3 1.3-.5 2-.5 2.1 0 3.6 1.4 3.6 4.7v6.3h-3.2v-5.9c0-1.6-.5-2.5-1.6-2.5-.8 0-1.3.5-1.6 1.2-.1.2-.1.6-.1.8v6.3h-3.2v-6c0-1.3-.5-2.3-1.6-2.3-.9 0-1.4.7-1.6 1.2-.1.3-.1.6-.1.9v6.2h-3.2v-7.3h.2zm25.4.7c0-.8-.4-2.2-1.9-2.2-1.4 0-2 1.3-2.1 2.2h4zm-3.9 2.3c.1 1.4 1.5 2.1 3 2.1 1.1 0 2.1-.2 3-.5l.4 2.3c-1.1.5-2.4.7-3.9.7-3.6 0-5.7-2.1-5.7-5.5 0-2.7 1.7-5.7 5.4-5.7 3.5 0 4.8 2.7 4.8 5.4 0 .6-.1 1.1-.1 1.3l-6.9-.1zM69 6.9v2.9h2.4v2.5H69v3.9c0 1.3.3 1.9 1.3 1.9.5 0 .7 0 1-.1v2.5c-.4.2-1.2.3-2.2.3-1.1 0-2-.4-2.5-.9-.6-.7-.9-1.7-.9-3.2v-4.4h-1.4V9.8h1.4v-2l3.3-.9zm10 8.6c-1.8 0-3.1.4-3.1 1.7 0 .9.6 1.3 1.3 1.3.8 0 1.5-.5 1.7-1.2 0-.2.1-.4.1-.6v-1.2zm3.3 2.5c0 1 0 2 .2 2.6h-3l-.2-1.1h-.1c-.7.9-1.8 1.3-3.1 1.3-2.2 0-3.5-1.6-3.5-3.3 0-2.8 2.5-4.1 6.3-4.1v-.1c0-.6-.3-1.4-2-1.4-1.1 0-2.3.4-3 .8l-.6-2.1c.7-.4 2.2-1 4.2-1 3.6 0 4.7 2.1 4.7 4.6l.1 3.8zM93 20.3c-.6.3-1.7.5-3 .5-3.5 0-5.7-2.1-5.7-5.5 0-3.1 2.2-5.7 6.1-5.7.9 0 1.8.2 2.5.4l-.5 2.5c-.4-.2-1-.3-1.9-.3-1.8 0-2.9 1.3-2.9 3 0 2 1.3 3 2.9 3 .8 0 1.4-.1 1.9-.4l.6 2.5zm1.8-7c0-1.6 0-2.6-.1-3.5h2.9l.1 2h.1c.5-1.6 1.8-2.2 2.9-2.2.3 0 .5 0 .7.1v3.1c-.3 0-.5-.1-.9-.1-1.2 0-2.1.6-2.3 1.7 0 .2-.1.5-.1.7v5.4h-3.3v-7.2zm8.3 7.2h3.3V9.8h-3.3v10.7zm1.7-12.1c-1.1 0-1.8-.8-1.8-1.8s.7-1.8 1.9-1.8c1.1 0 1.8.8 1.9 1.8-.1 1-.9 1.8-2 1.8zm8.1-1.5v2.9h2.4v2.5h-2.4v3.9c0 1.3.3 1.9 1.3 1.9.5 0 .7 0 1-.1v2.5c-.4.2-1.2.3-2.2.3-1.1 0-2-.4-2.5-.9-.6-.6-.9-1.7-.9-3.2v-4.4h-1.4V9.8h1.4v-2l3.3-.9zm4.3 13.6h3.3V9.8h-3.3v10.7zm1.6-12.1c-1.1 0-1.8-.8-1.8-1.8s.7-1.8 1.9-1.8c1.1 0 1.8.8 1.9 1.8-.1 1-.8 1.8-2 1.8zm12.4 11.9c-.6.3-1.7.5-3 .5-3.5 0-5.7-2.1-5.7-5.5 0-3.1 2.2-5.7 6.1-5.7.9 0 1.8.2 2.5.4l-.5 2.5c-.4-.2-1-.3-1.9-.3-1.8 0-2.9 1.3-2.9 3 0 2 1.3 3 2.9 3 .8 0 1.4-.1 1.9-.4l.6 2.5z"></path> </svg>
+              <span>MetaScore</span>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
   );

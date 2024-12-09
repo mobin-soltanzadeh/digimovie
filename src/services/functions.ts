@@ -17,4 +17,51 @@ const smallScreenHandler = (size: number, smallScreen: boolean, setSmallScreen: 
   })
 }
 
-export { isLogin, smallScreenHandler }
+const likedMovies = (): string[] => {
+  return JSON.parse(localStorage.getItem("LikedMovies") || '""');
+
+}
+
+const isMovieLiked = (movieName: string) : boolean => {
+  let allLiked = JSON.parse(localStorage.getItem("LikedMovies") || '""');
+  return allLiked.includes(movieName);
+}
+
+const addLikedMovies = (movieName: string) : void => {
+  let allLiked = JSON.parse(localStorage.getItem("LikedMovies") || '""') || [];
+  allLiked.push(movieName);
+  localStorage.setItem("LikedMovies", JSON.stringify(allLiked))
+}
+
+const deleteLikedMovies = (movieName: string) : void => {
+  let allLiked = JSON.parse(localStorage.getItem("LikedMovies") || '""');
+  localStorage.setItem("LikedMovies", JSON.stringify(allLiked.filter((movie: string) => movie !== movieName)))
+}
+
+const countLikedMovies = () : number => {
+  let allLiked = JSON.parse(localStorage.getItem("LikedMovies") || '""');
+  return allLiked.length;
+}
+
+const votesConverter = (voteCount: string|undefined) => {
+  if(voteCount !== undefined) {
+    voteCount = voteCount.replace(",", "").replace(",", "").replace(",", "").replace(",", "");
+  
+    if(voteCount.length > 6)
+      return `${voteCount.slice(0, voteCount.length-6)}.${voteCount[voteCount.length-6]}M Votes`
+    else if (voteCount.length > 3)
+      return `${voteCount.slice(0, voteCount.length-3)}.${voteCount[voteCount.length-3]}K Votes`
+  } 
+  
+  return "351K Votes";
+}
+
+const movieNameConverter = (movieName: string): string => {
+  return movieName.replace("%20", " ").replace("%20", " ").replace("%20", " ").replace("%20", " ").replace("%C3%A0", "à").replace("%2C", ",").replace("%C3%A0", "à")
+} 
+
+const toCapital = (name: string) => {
+  return name[0].toUpperCase() + name.slice(1);
+}
+
+export { isLogin, smallScreenHandler, likedMovies, isMovieLiked, addLikedMovies, deleteLikedMovies, countLikedMovies, votesConverter, movieNameConverter, toCapital}

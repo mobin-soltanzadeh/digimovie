@@ -10,8 +10,6 @@ export default function Actor() {
   let actorName = useLocation().pathname.slice(22).replace("%20", " ").replace("%20", " ").replace("%20", " ");
   let actorMovieIndex: number[] = [];
   let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-  console.log(alphabet.length)
-
 
   actor = maleActors.find(user => user.name === actorName);
   actor = actor || femaleActors.find(user => user.name === actorName);
@@ -65,7 +63,7 @@ export default function Actor() {
 
       <div className="grid grid-cols-1 sm250:grid-cols-2 sm400:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6 w-full lg:w-250 xl:w-300 mx-auto px-3 lg:px-0">
         {actorMovieIndex.map(index => (
-            <DemoMovieCard movieIndex={index} />
+            <DemoMovieCard key={index} movieIndex={index} />
         ))}
       </div>
 

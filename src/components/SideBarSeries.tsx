@@ -11,18 +11,18 @@ export default function SideBarSeries() {
         <h1 className="text-center">Updated Series</h1>
       </div>
 
-      <Link  to={"/digimovie/series/"+preferredSeries[0].Title} className="flex flex-col justify-center items-center w-full h-64 rounded-lg overflow-hidden">
+      <Link  to={"/digimovie/serial/"+preferredSeries[0].Title} className="flex flex-col justify-center items-center w-full h-64 rounded-lg overflow-hidden">
         <div className="w-full h-[90%]"><img src={preferredSeries[0].Poster} className="w-full h-full object-cover"/></div>
         <h3 className="text-center w-full h-10 bg-zinc-400/70 dark:bg-neutral-700">{preferredSeries[0].Title}</h3>
       </Link>
-      <Link to={"/digimovie/series/"+preferredSeries[1].Title} className="flex flex-col justify-center items-center w-full h-36 rounded-lg overflow-hidden">
+      <Link to={"/digimovie/serial/"+preferredSeries[1].Title} className="flex flex-col justify-center items-center w-full h-36 rounded-lg overflow-hidden">
         <div className="w-full h-5/6"><img src={preferredSeries[1].Poster} className="w-full h-full object-cover"/></div>
         <h3 className="text-center w-full h-10 bg-zinc-400/70 dark:bg-neutral-700">{preferredSeries[1].Title.slice(0, 8)}</h3>
       </Link>
       
       {
         preferredSeries.slice(2).map(movie => (
-          <Link key={movie.Title} to={"/digimovie/series/"+movie.Title} className="flex flex-col justify-center items-center w-full h-12 lg:h-16 xl:h-20 rounded-lg overflow-hidden">
+          <Link key={movie.Title} to={"/digimovie/serial/"+movie.Title} className="flex flex-col justify-center items-center w-full h-12 lg:h-16 xl:h-20 rounded-lg overflow-hidden">
             <div className="w-full h-2/3"><img src={movie.Poster} className="w-full h-full object-cover"/></div>
             <h3 className="text-center w-full bg-zinc-400/70 dark:bg-neutral-700">{movie.Title}</h3>
           </Link>

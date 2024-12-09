@@ -4,6 +4,7 @@ import { GoPersonFill } from "react-icons/go";
 
 interface Props {
   type?: "movie" | "actor";
+  speed?: "s" | "actor";
 }
 
 export default function Skeleton({ type }: Props) {

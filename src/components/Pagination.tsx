@@ -2,13 +2,13 @@ import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 
 
 interface Props {
-  size: number;
+  size?: number;
   countPerPage: number;
   currentPage: number;
   setPage: (num: number) => void;
 }
 
-export default function Pagination({ size, countPerPage, currentPage, setPage }: Props) {
+export default function Pagination({ size=10, countPerPage, currentPage, setPage }: Props) {
   let startPageNum = 1;
   let endPageNum = Math.ceil(size/countPerPage);
   
@@ -26,7 +26,7 @@ export default function Pagination({ size, countPerPage, currentPage, setPage }:
   );
 
   return (
-    <div className="BottomPagination flex justify-center items-center gap-x-3 w-full px-4">
+    <div className="BottomPagination flex justify-center items-center gap-x-3 w-full px-4 mb-10">
       {
         startPageNum !== endPageNum &&
         <button className={`relative size-6 lg:size-7 xl:size-9 rotate-45 hover:bg-zinc-700 hover:text-orange-500 rounded-md`} onClick={() => currentPage !== startPageNum && setPage(currentPage-1)} >

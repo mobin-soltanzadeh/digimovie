@@ -16,8 +16,8 @@ export default function Top250Movies() {
   const [filterMenu, setFilterMenu] = useState(false);
   const [filter, setFilter] = useState<"Name" | "Imdb" | "Released date">("Imdb");
 
-  let countPerPage = 10;
-  let startIndex = (currentPage-1)*countPerPage, endIndex = currentPage * 10;
+  let countPerPage = 8;
+  let startIndex = (currentPage-1)*countPerPage, endIndex = currentPage * countPerPage;
 
   const [moviesArray, setMovieArray] = useState<TypeMovie[] | any[]>([]);
   let allBestMovies = [...Top250];
@@ -42,7 +42,7 @@ export default function Top250Movies() {
 
   return(
       <>
-        <div className="HomePageMain flex flex-col gap-y-3 w-full lg:w-250 xl:w-300 mx-auto px-3 lg:px-0">
+        <div className="HomePageMain flex flex-col gap-y-3 w-full h-full lg:w-250 xl:w-300 mx-auto px-3 lg:px-0 overflow-hidden">
 
           <div className="flex justify-start items-center gap-x-1 text-sm sm500:text-base">
             <TiLocation color="#fb923c" size={"18px"} />
@@ -63,17 +63,17 @@ export default function Top250Movies() {
                     <div className="w-4 lg:w-6"><IoIosArrowDown size={"100%"} className="mt-1" /></div>
                   </button>
                   <ul style={{display: filterMenu ? "flex" : "none"}} className="absolute top-full translate-y-2 left-0 flex flex-col justify-center items-start w-full border-4 border-black/40 bg-gray-100 dark:bg-neutral-800 rounded-md z-50">
-                    <li className="gap-x-2 py-1 text-start w-full px-3 hover:bg-zinc-700" onClick={() => setFilter("Imdb")}>Imdb</li>
-                    <li className="gap-x-2 py-1 text-start w-full px-3 hover:bg-zinc-700" onClick={() => setFilter("Name")}>Name</li>
-                    <li className="gap-x-2 py-1 text-start w-full px-3 hover:bg-zinc-700" onClick={() => setFilter("Released date")}>Released date</li>
+                    <li className="gap-x-2 py-1 text-start w-full px-3 hover:bg-zinc-700 text-nowrap" onClick={() => setFilter("Imdb")}>Imdb</li>
+                    <li className="gap-x-2 py-1 text-start w-full px-3 hover:bg-zinc-700 text-nowrap" onClick={() => setFilter("Name")}>Name</li>
+                    <li className="gap-x-2 py-1 text-start w-full px-3 hover:bg-zinc-700 text-nowrap" onClick={() => setFilter("Released date")}>Released date</li>
                  </ul>
                 </div>
               </div>
               {/* generate each movie */}
-              { moviesArray.map((movie, index) => <MovieCard key={movie.Title} movie={movie} type dataAos={index%2 === 0 ? "fade-up-right": "fade-up-left"} dataAosDuration="2000" /> ) }
+              { moviesArray.map((movie, index) => <MovieCard key={movie.Title} movie={movie} type="best" dataAos={index%2 === 0 ? "fade-up-right": "fade-up-left"} dataAosDuration="2000" /> ) }
 
               {/* page botton pagination */}
-              <Pagination size={Top250.length} countPerPage={10} currentPage={currentPage} setPage={setCurrentPage} />
+              <Pagination size={Top250.length} countPerPage={countPerPage} currentPage={currentPage} setPage={setCurrentPage} />
             </div>
           </div>
 

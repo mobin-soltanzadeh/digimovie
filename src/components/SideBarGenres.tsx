@@ -15,7 +15,7 @@ export default function SideBarGenres({ type }: {type: "movie"|"serie"} ) {
       <div className="flex flex-col gap-y-1 w-full">
         {
           (type==="movie" ? MovieGenres : SerieGenres).map(genre => (
-            <Link to={type==="movie" ? "/digimovie/genre/"+genre.genre : ""} key={genre.genre} data-aos="fade-in-up" data-aos-duration="2000" data-aos-anchor-placement="bottom-bottom" className="flex justify-between items-center w-full text-sm">
+            <Link to={type==="movie" ? "/digimovie/genre/"+genre.genre.toLowerCase() : ""} key={genre.genre} data-aos="fade-in-up" data-aos-duration="3000" data-aos-anchor-placement="bottom-bottom" className="flex justify-between items-center w-full text-sm">
               <div className="flex justify-center items-center gap-x-1">
                   <SlArrowRight size={"8px"} />
                   <span className="hover:text-orange-400 cursor-pointer transition-colors duration-300">{genre.genre}</span>

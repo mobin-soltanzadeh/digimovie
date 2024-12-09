@@ -8,7 +8,7 @@ import "./Footer.css"
 export default function Footer() {
 
     return (
-    <div className="Footer w-full py-20 mt-10 bg-white dark:bg-neutral-900 overflow-hidden">
+    <div className="Footer w-full py-20  bg-white dark:bg-neutral-900 overflow-hidden">
         <div className="flex flex-col md:flex-row justify-between items-center w-3/5 my-auto mx-auto">
             <p className="text-3xl font-dana-light">Design by <span className="font-mangiola font-black">Mobin</span></p>
             <div className="flex justify-center items-center gap-x-2">

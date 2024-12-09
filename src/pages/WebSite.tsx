@@ -15,8 +15,8 @@ function WebSite() {
 
   return (
     <div className="WebSite flex flex-col gap-y-4">
-      <Header onLogInOut={resetlogin} />
-      <Outlet />
+      <Header onLogInOut={resetlogin}  />
+      <Outlet context={[reset, setReset]} />
       <Footer />
       <BackToTop />
     </div>
@@ -24,3 +24,5 @@ function WebSite() {
 }
 
 export default WebSite;
+
+// apikey = {ad6c509b, 6ff03345}

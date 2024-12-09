@@ -15,6 +15,9 @@ import Image3 from "../assets/application3.png";
 import Image4 from "../assets/application4.png";
 
 export default function Application() {
+  // localStorage.setItem("LikedMovies", JSON.stringify(["a"]))
+  // console.log(JSON.parse("1"));
+
   return (
     <div className="Application flex flex-col items-center bg-gradient-to-b text-gray-100 from-zinc-900 via-stone-900 to-gray-950 min-h-screen font-dana-medium overflow-hidden">
 
@@ -22,11 +25,11 @@ export default function Application() {
         <Link to="/digimovie/"><img className="w-40" src="https://shahindb.lol/wp-content/uploads/2023/09/logo-light.png" alt="site-logo" /></Link>
         
         <h1 className="text-xl sm:text-2xl md:text-3xl font-bold font-mangiola text-center px-2">Watch Without any interrupt</h1>
-        <h2 className="text-base sm:text-lg lg::text-2xl text-center px-2">By using our application you can have any Movie or Serial available in DigiMovie</h2>
+        <h2 className="text-base sm:text-lg lg::text-2xl text-center px-2">By using our application you can have any <span className="border-b border-orange-400">Movie or Serial</span> available in DigiMovie</h2>
         
         <div className="flex justify-center items-center gap-x-2 font-mangiola">
           <Link to="" className="text-center w-32 px-3 py-2 bg-zinc-800 hover:bg-zinc-700 border-2 border-zinc-800 hover:border-zinc-700 rounded-md">Premium</Link>
-          <Link to="" className="text-center w-32 px-3 py-2 border-2 border-zinc-800 hover:border-zinc-700 rounded-md">SignUp</Link>
+          <Link to="" className="text-center w-32 px-3 py-2 border-2 border-zinc-800 hover:border-zinc-700 rounded-md">Sign Up</Link>
         </div>
       </div>
 
@@ -43,7 +46,7 @@ export default function Application() {
       <div className="w-full overflow-hidden">
         <div className="flex flex-col gap-y-32 md:gap-y-20 w-11/12 mx-auto px-20 mb-10">
 
-          <div data-aos="fade-up" className="flex flex-col md:flex-row justify-between items-center gap-y-5 w-full md:h-48 lg:h-72 xl:h-96">
+          <div data-aos="fade-up" className="flex flex-col md:flex-row justify-between items-center gap-y-5 w-full md:h-48 lg:h-72 xl:h-[700px]">
             <div className="order-3 md:order-1 flex flex-col justify-center items-start gap-y-3 text-xs sm450:text-sm md:text-base lg:text-xl">
               <p>Put it in your pocket!</p>
               <p className="ml-3 line-clamp-1">A world of movies and series, always in your pocket !</p>
@@ -55,15 +58,15 @@ export default function Application() {
 
             </div>
             
-            <img src={Image1} alt="image" className="order-2 shrink-0 h-2/6 md:h-full max-h-96" />
+            <img src={Image1} alt="image" className="order-2 shrink-0 h-2/6 md:h-full max-h-[700px]" />
           </div>
 
-          <div data-aos="fade-up" className="flex flex-col md:flex-row justify-between items-center gap-y-5 w-full md:h-48 lg:h-72 xl:h-96">
+          <div data-aos="fade-up" className="flex flex-col md:flex-row justify-between items-center gap-y-5 w-full md:h-48 lg:h-72 xl:h-[700px]">
             <img src={Image2} alt="image" className="order-1 shrink-0 h-2/6 md:h-4/6 max-h-96" />
 
             <div className="order-3 md:order-1 flex flex-col justify-center items-start gap-y-3 text-xs sm450:text-sm md:text-base lg:text-xl">
-              <p>Look on the wall of the house!</p>
-              <p className="ml-3 line-clamp-1">Endless cinema at the heart of your TV !</p>
+              <p>Watch everywhere!</p>
+              <p className="ml-3 line-clamp-1">Endless Cinema on your TV !</p>
 
               <div className="flex justify-center items-center gap-x-1 ml-6 px-2 py-1 hover:bg-orange-500 transition-colors duration-300 border-2 border-gray-300/20 rounded-lg group cursor-pointer">
                   <IoTvOutline className="shrink-0 text-orange-500 group-hover:text-gray-200 transition-colors duration-300 mb-1 w-5 h-5 lg:w-6 lg:h-6" />
@@ -73,14 +76,14 @@ export default function Application() {
             </div>
           </div>
 
-          <div data-aos="fade-up" className="flex flex-col md:flex-row justify-between items-center gap-y-5 w-full md:h-48 lg:h-72 xl:h-96">
+          <div data-aos="fade-up" className="flex flex-col md:flex-row justify-between items-center gap-y-5 w-full md:h-48 lg:h-72 xl:h-[700px]">
             <div className="order-3 md:order-1 flex flex-col justify-center items-start gap-y-3 text-xs sm450:text-sm md:text-base lg:text-xl">
-              <p>Have it in your bag!</p>
-              <p className="ml-3 line-clamp-1">Endless cinema on your MacBook !</p>
+              <p>Have it in your MacBook!</p>
+              <p className="ml-3 line-clamp-1">Endless Cinema in your bag !</p>
               
               <div className="flex justify-center items-center gap-x-1 ml-6 px-2 py-1 hover:bg-orange-500 transition-colors duration-300 border-2 border-gray-300/20 rounded-lg group cursor-pointer">
                   <IoLogoApple className="shrink-0 text-orange-500 group-hover:text-gray-200 transition-colors duration-300 mb-1.5 w-5 h-5 lg:w-6 lg:h-6" />
-                  <p className="group-hover:text-zinc-800 text-nowrap">Download for <span className="m-0 md:ml-1">mac</span></p>
+                  <p className="group-hover:text-zinc-800 text-nowrap">Download for <span className="m-0 md:ml-1">Mac</span></p>
               </div>
 
             </div>
@@ -88,12 +91,12 @@ export default function Application() {
             <img src={Image3} alt="image" className="order-2 shrink-0 h-2/6 md:h-4/6 max-h-96" />
           </div>
 
-          <div data-aos="fade-up" className="flex flex-col md:flex-row justify-between items-center gap-y-5 w-full md:h-48 lg:h-72 xl:h-96">
+          <div data-aos="fade-up" className="flex flex-col md:flex-row justify-between items-center gap-y-5 w-full md:h-48 lg:h-72 xl:h-[700px]">
             <img src={Image4} alt="image" className="order-1 shrink-0 h-2/6 md:h-4/6 max-h-96" />
 
             <div className="order-3 md:order-1 flex flex-col justify-center items-start gap-y-3 text-xs sm450:text-sm md:text-base lg:text-xl">
               <p>Watch movies on your Windows!</p>
-              <p className="ml-3 line-clamp-1">The world of movies and series is just a click away from you !</p>
+              <p className="ml-3 line-clamp-1">A world of movies and series is just a click away from you !</p>
 
               <div className="flex justify-center items-center gap-x-1 ml-6 px-2 py-1 hover:bg-orange-500 transition-colors duration-300 border-2 border-gray-300/20 rounded-lg group cursor-pointer">
                   <BiLogoWindows className="shrink-0 text-orange-500 group-hover:text-gray-200 transition-colors duration-300 mb-1 w-5 h-5 lg:w-6 lg:h-6" />

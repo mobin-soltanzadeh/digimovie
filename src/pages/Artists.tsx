@@ -7,29 +7,28 @@ interface Props {
   type: "all" | "male" | "female" | "directors";
 }
 
-export default function Actors({ type }: Props) {
+export default function Artists({ type }: Props) {
   let results: TypeActor[] = [];
   let title = "All Best"
 
   if (type === "all") {
-    results = maleActors.concat(femaleActors).sort();
+    results = [...maleActors, ...femaleActors].sort((a, b) => a.name.localeCompare(b.name));
     title = "Best Artists";
 
   } else if (type === "male") {
-    results = maleActors.sort();
+    results = maleActors.sort((a, b) => a.name.localeCompare(b.name));
     title = "Best Actors";
 
   } else if (type === "female") {
-    results = femaleActors.sort();
+    results = femaleActors.sort((a, b) => a.name.localeCompare(b.name))
     title = "Best Actress";
 
   } else if (type === "directors") {
-    results = directors.sort();
+    results = directors.sort((a, b) => a.name.localeCompare(b.name))
     title = "Best Directors";
 
   } else results = [];
 
-  results = results.sort((a, b) => a.name.charCodeAt(0) - b.name.charCodeAt(0) )
 
   return (
     <div className="Players flex justify-between items-start gap-x-5 w-full lg:w-250 xl:w-300 mx-auto px-3 lg:px-0 mt-5">

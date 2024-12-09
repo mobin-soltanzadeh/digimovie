@@ -1,9 +1,7 @@
 import { useLocation } from "react-router-dom";
 
 export default function MovieWithGenre() {
-  let genre = useLocation().pathname.slice(17)
-  console.log(genre);
-  
+  let genre = useLocation().pathname.slice(17);  
 
   return (
     <div>
