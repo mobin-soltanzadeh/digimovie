@@ -23,27 +23,12 @@ export interface TypeMovie{
   DVD: string;
   BoxOffice: string;
   Response: string;
-  Comment: string;
 }
 export interface TypePreferredMovie{
   Title: string;
   Year: string;
-  Runtime: string;
-  Director: string;
-  Writer: string;
-  Actors: string;
-  Plot: string;
-  Language: string;
-  Country: string;
-  Awards: string;
   Poster: string;
   imdbRating: string;
-  imdbVotes: string;
-  imdbID: string;
-  Type: string;
-  BoxOffice: string;
-  Response: string;
-  Released: string;
   Resolution: string;
 }
 
@@ -72,17 +57,17 @@ export interface TypeSerial{
   Response: string;
 }
 
-let preferredMovies = [
-  {"Title":"Venom: The Last Dance","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BZDMyYWU4NzItZDY0MC00ODE2LTkyYTMtMzNkNDdmYmFhZDg0XkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"6.2"},
-  {"Title":"Saving Bikini Bottom: The Sandy Cheeks Movie","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BYTFmNDU1YjItZThmYi00NjM3LTk5OGEtODgyMDQ3ODFiYjZhXkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"3.7"},
-  {"Title":"Joker: Folie à Deux","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BNTRlNmU1NzEtODNkNC00ZGM3LWFmNzQtMjBlMWRiYTcyMGRhXkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"5.3"},
-  {"Title":"Moana 2","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BZDUxNThhYTUtYjgxNy00MGQ4LTgzOTEtZjg1YTU5NTcwNThlXkEyXkFqcGc@._V1_SX700.jpg"},
-  {"Title":"Rebel Moon - Part Two: The Scargiver","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BOGYzMDQ1ZWItNjMyYi00ZjM4LWE5YTctYTJhNTYxZDI4OTU0XkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"5.3"},
-  {"Title":"Transformers One","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BNWMwZmVkMjQtMTE3OC00Yjg4LTk5YmYtOWYwYjU2Zjg1ZTBkXkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"7.6"},
-  {"Title":"Under Paris","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BMDM5ODBiN2ItOTk4Yi00NzgyLWE2YTktYzhjYTc2ODE4ZTE4XkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"5.2"},
-  {"Title":"The Wild Robot","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BZjM2M2E3YzAtZDJjYy00MDhkLThiYmItOGZhNzQ3NTgyZmI0XkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"8.3"},
-  {"Title":"Love, Divided","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BNGJiZjY3MWItMmVmNy00MmJkLTg2NjMtM2VkMWNjZTQ0NDI3XkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"5.9"},
-  {"Title":"Flow","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BOTM5ODBlOTAtYjcwZi00YzkzLWIzODEtMTM2MTZlNDFmMWU2XkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"8.0"},
+let preferredMovies: TypePreferredMovie[] = [
+  {"Resolution": "1080p WEB-DL Full HD", "Title":"Venom: The Last Dance","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BZDMyYWU4NzItZDY0MC00ODE2LTkyYTMtMzNkNDdmYmFhZDg0XkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"6.2"},
+  {"Resolution": "2160p 4K BluRay", "Title":"Saving Bikini Bottom: The Sandy Cheeks Movie","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BYTFmNDU1YjItZThmYi00NjM3LTk5OGEtODgyMDQ3ODFiYjZhXkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"3.7"},
+  {"Resolution": "1080p WEB-DL Full HD", "Title":"Joker: Folie à Deux","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BNTRlNmU1NzEtODNkNC00ZGM3LWFmNzQtMjBlMWRiYTcyMGRhXkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"5.3"},
+  {"Resolution": "1080p BluRay", "Title":"Moana 2","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BZDUxNThhYTUtYjgxNy00MGQ4LTgzOTEtZjg1YTU5NTcwNThlXkEyXkFqcGc@._V1_SX700.jpg", "imdbRating": "8.1"},
+  {"Resolution": "2160p 4K WEB-DL", "Title":"Rebel Moon - Part Two: The Scargiver","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BOGYzMDQ1ZWItNjMyYi00ZjM4LWE5YTctYTJhNTYxZDI4OTU0XkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"5.3"},
+  {"Resolution": "1080p BluRay", "Title":"Transformers One","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BNWMwZmVkMjQtMTE3OC00Yjg4LTk5YmYtOWYwYjU2Zjg1ZTBkXkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"7.6"},
+  {"Resolution": "1080p WEB-DL", "Title":"Under Paris","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BMDM5ODBiN2ItOTk4Yi00NzgyLWE2YTktYzhjYTc2ODE4ZTE4XkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"5.2"},
+  {"Resolution": "1080p BluRay", "Title":"The Wild Robot","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BZjM2M2E3YzAtZDJjYy00MDhkLThiYmItOGZhNzQ3NTgyZmI0XkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"8.3"},
+  {"Resolution": "1080p WEB-DL Full HD", "Title":"Love, Divided","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BNGJiZjY3MWItMmVmNy00MmJkLTg2NjMtM2VkMWNjZTQ0NDI3XkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"5.9"},
+  {"Resolution": "1080p BluRay", "Title":"Flow","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BOTM5ODBlOTAtYjcwZi00YzkzLWIzODEtMTM2MTZlNDFmMWU2XkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"8.0"},
 ]
 
 let preferredSeries = [

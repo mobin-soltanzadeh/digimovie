@@ -52,7 +52,6 @@ export default function Movie() {
       .then(data => {
         data.imdbRating = data.imdbRating==="N/A" ? "8.2" : data.imdbRating;
         data.imdbVotes = data.imdbVotes==="N/A" ? "4,376,290" : data.imdbVotes;
-        data.Comments = 4
         setResult(data.Response === "True" ? data : loadingObject)
       })
       .catch(() => setResult(loadingObject));
@@ -86,7 +85,7 @@ export default function Movie() {
                 <h1 className="text-base md:text-xl lg:text-2xl text-wrap line-clamp-1">{result?.Title} {result?.Year}</h1>
                 <div className="comments flex justify-center items-center gap-x-1">
                   <AiOutlineComment size={"20px"} color="#fb923c" />
-                  <span><span className="text-orange-400">{result?.Comment}</span> Comments</span>
+                  <span><span className="text-orange-400">4</span> Comments</span>
                 </div>
               </div>
             
