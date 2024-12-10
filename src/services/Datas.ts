@@ -7751,6 +7751,41 @@ let SerieGenres = [
   },
 ]
 
+// comment
+
+let comments = [
+  { "postId": 1,  "from": "Ellie", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum! Molestiae sequi rerum est reprehenderit consequatur enim cum sapiente numquam incidunt tempore? Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum?" },
+  { "postId": 2,  "from": "Jack", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sequi rerum tempore?" },
+  { "postId": 3,  "from": "Olivia", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum! Molestiae sequi rerum est reprehenderit consequatur enim cum sapiente numquam incidunt tempore? Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum?" },
+  { "postId": 4,  "from": "Amelia", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sequi rerum tempore?" },
+  { "postId": 5,  "from": "Arthur", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum! Molestiae sequi rerum est reprehenderit consequatur enim cum sapiente numquam incidunt tempore? Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum?" },
+  { "postId": 6,  "from": "Ava", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sequi rerum tempore?" },
+  { "postId": 7,  "from": "Emma", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum! Molestiae sequi rerum est reprehenderit consequatur enim cum sapiente numquam incidunt tempore? Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum?" },
+  { "postId": 8,  "from": "Evelyn", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sequi rerum tempore?" },
+  { "postId": 9,  "from": "Isabella", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum! Molestiae sequi rerum est reprehenderit consequatur enim cum sapiente numquam incidunt tempore? Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum?" },
+  { "postId": 10, "from": "Lily", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sequi rerum tempore?" },
+  { "postId": 11, "from": "Mia", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum! Molestiae sequi rerum est reprehenderit consequatur enim cum sapiente numquam incidunt tempore? Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum?" },
+  { "postId": 12, "from": "Archie", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sequi rerum tempore?" },
+  { "postId": 13, "from": "Edward", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum! Molestiae sequi rerum est reprehenderit consequatur enim cum sapiente numquam incidunt tempore? Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum?" },
+  { "postId": 14, "from": "George", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sequi rerum tempore?" },
+  { "postId": 15, "from": "Harry", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum! Molestiae sequi rerum est reprehenderit consequatur enim cum sapiente numquam incidunt tempore? Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum?" },
+  { "postId": 16, "from": "Ivy", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sequi rerum tempore?" },
+  { "postId": 17, "from": "Oscar", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum! Molestiae sequi rerum est reprehenderit consequatur enim cum sapiente numquam incidunt tempore? Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum?" },
+  { "postId": 18, "from": "Sophia", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sequi rerum tempore?" },
+  { "postId": 19, "from": "William", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum! Molestiae sequi rerum est reprehenderit consequatur enim cum sapiente numquam incidunt tempore? Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum?" },
+  { "postId": 20, "from": "Aria", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sequi rerum tempore?" },
+  { "postId": 21, "from": "Charlotte", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum! Molestiae sequi rerum est reprehenderit consequatur enim cum sapiente numquam incidunt tempore? Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum?" },
+  { "postId": 22, "from": "Dean", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sequi rerum tempore?" },
+  { "postId": 23, "from": "Everett", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum! Molestiae sequi rerum est reprehenderit consequatur enim cum sapiente numquam incidunt tempore? Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum?" },
+  { "postId": 24, "from": "Grayson", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sequi rerum tempore?" },
+  { "postId": 25, "from": "William", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum! Molestiae sequi rerum est reprehenderit consequatur enim cum sapiente numquam incidunt tempore? Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum?" },
+  { "postId": 26, "from": "Aria", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sequi rerum tempore?" },
+  { "postId": 27, "from": "Charlotte", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum! Molestiae sequi rerum est reprehenderit consequatur enim cum sapiente numquam incidunt tempore? Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum?" },
+  { "postId": 28, "from": "Dean", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sequi rerum tempore?" },
+  { "postId": 29, "from": "Everett", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum! Molestiae sequi rerum est reprehenderit consequatur enim cum sapiente numquam incidunt tempore? Ipsa vitae assumenda harum alias veniam nesciunt. Eligendi, sunt eum?" },
+  { "postId": 30, "from": "Grayson", "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae sequi rerum tempore?" },
+]
+
 // actors
 export interface TypeActor{
   name: string;
@@ -7874,4 +7909,4 @@ let directors = [
   {name: "James Cameron", career: "actor", birthDate: "Sep 14, 1986 in Minot, North Dakota, USA", height: "1.76 m", poster: "https://shahindb.lol/wp-content/uploads/2023/06/MV5BMjI0MjMzOTg2MF5BMl5BanBnXkFtZTcwMTM3NjQxMw@@._SY600_SX400.jpg"},  
 ]
 
-export { preferredMovies, preferredSeries, Top250, Movies3D, boxOffice, MovieGenres, SerieGenres, maleActors, femaleActors, directors}
+export { preferredMovies, preferredSeries, Top250, Movies3D, boxOffice, MovieGenres, SerieGenres, comments, maleActors, femaleActors, directors}

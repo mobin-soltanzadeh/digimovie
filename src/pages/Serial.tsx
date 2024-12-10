@@ -24,7 +24,7 @@ export default function Serial() {
   if(locationPathname.includes("/title=")) name = locationPathname.slice(24);
   else name = locationPathname.slice(18);
 
-  let loadingObject :any = new Object({Title: "N/A", RunTime: "N/A", Genre: "N/A", Country: "N/A"})
+  let loadingObject :any = new Object({Title: "N / A", RunTime: "N / A", Genre: "N / A", Country: "N / A", Director: "N / A", Rated: "N / A", Writer: "N / A", Actors: "N / A", totalSeasons: "N / A", imdbRating: "N / A" , imdbVotes: "N / A" })
   
   useEffect(() => {
     fetch(`https://www.omdbapi.com/?apikey=ad6c509b&t=${name}&type=series&plot=full`)
