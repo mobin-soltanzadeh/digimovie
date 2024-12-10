@@ -13,7 +13,7 @@ function App() {
   }, [])
 
   return(
-    <div className="App w-full h-full text-zinc-800 dark:text-gray-100 bg-gray-200 dark:bg-zinc-950">
+    <div className="App w-full h-full text-zinc-800 dark:text-gray-100 bg-gray-200 dark:bg-zinc-950 min-h-screen">
       {router}
     </div>
   );

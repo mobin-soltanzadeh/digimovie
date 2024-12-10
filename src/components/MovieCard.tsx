@@ -74,7 +74,7 @@ export default function MovieCard({ movie, type, dataAos, dataAosDuration, reset
   )
 
   return (
-    <div data-aos={dataAos || ""} data-aos-duration={dataAosDuration || "2000"} className="relative flex justify-start items-center w-4/5 mx-auto sm500:w-full sm500:h-auto bg-white dark:bg-neutral-800 rounded-lg">
+    <div data-aos={dataAos || ""} data-aos-duration={dataAosDuration || "2000"} className="relative flex justify-start items-center w-full sm500:h-auto bg-white dark:bg-neutral-800 rounded-lg">
         
       <div className="flex flex-col sm500:flex-row h-full justify-between items-start gap-3 p-4 lg:p-5 group">
 
@@ -86,7 +86,7 @@ export default function MovieCard({ movie, type, dataAos, dataAosDuration, reset
           <div className="meta flex flex-col justify-between items-start gap-y-5 w-full overflow-hidden">
           
             <div className="meta-head flex justify-between items-center gap-x-4 w-full">
-              <Link to={"/digimovie/movie/"+movie.Title} className="leftSide text-base md:text-lg xl:text-xl text-nowrap line-clamp-1">{movie?.Title} {movie?.Year}</Link>
+              <Link to={"/digimovie/movie/"+movie.Title} className="leftSide text-base md:text-lg xl:text-xl line-clamp-1">{movie?.Title} {movie?.Year}</Link>
           
               <div className="rightSide flex justify-center items-center gap-x-1 xl:gap-x-4">
                 <div onClick={like}>

@@ -44,9 +44,9 @@ export default function Application() {
 
       {/*  */}
       <div className="w-full overflow-hidden">
-        <div className="flex flex-col gap-y-32 md:gap-y-20 w-11/12 mx-auto px-20 mb-10">
+        <div className="flex flex-col gap-y-32 md:gap-y-20 w-11/12 mx-auto px-10 sm:px-20 mb-10">
 
-          <div data-aos="fade-up" className="flex flex-col md:flex-row justify-between items-center gap-y-5 w-full md:h-48 lg:h-72 xl:h-[700px]">
+          <div data-aos="fade-up" className="flex flex-col md:flex-row justify-between items-center gap-y-5 w-full h-auto md:h-56 lg:h-80 xl:h-[500px] 2xl:h-[600px]">
             <div className="order-3 md:order-1 flex flex-col justify-center items-start gap-y-3 text-xs sm450:text-sm md:text-base lg:text-xl">
               <p>Put it in your pocket!</p>
               <p className="ml-3 line-clamp-1">A world of movies and series, always in your pocket !</p>
@@ -61,7 +61,7 @@ export default function Application() {
             <img src={Image1} alt="image" className="order-2 shrink-0 h-2/6 md:h-full max-h-[700px]" />
           </div>
 
-          <div data-aos="fade-up" className="flex flex-col md:flex-row justify-between items-center gap-y-5 w-full md:h-48 lg:h-72 xl:h-[700px]">
+          <div data-aos="fade-up" className="flex flex-col md:flex-row justify-between items-center gap-y-5 w-full h-auto md:h-56 lg:h-80 xl:h-[500px] 2xl:h-[600px]">
             <img src={Image2} alt="image" className="order-1 shrink-0 h-2/6 md:h-4/6 max-h-96" />
 
             <div className="order-3 md:order-1 flex flex-col justify-center items-start gap-y-3 text-xs sm450:text-sm md:text-base lg:text-xl">
@@ -76,7 +76,7 @@ export default function Application() {
             </div>
           </div>
 
-          <div data-aos="fade-up" className="flex flex-col md:flex-row justify-between items-center gap-y-5 w-full md:h-48 lg:h-72 xl:h-[700px]">
+          <div data-aos="fade-up" className="flex flex-col md:flex-row justify-between items-center gap-y-5 w-full h-auto md:h-56 lg:h-80 xl:h-[500px] 2xl:h-[600px]">
             <div className="order-3 md:order-1 flex flex-col justify-center items-start gap-y-3 text-xs sm450:text-sm md:text-base lg:text-xl">
               <p>Have it in your MacBook!</p>
               <p className="ml-3 line-clamp-1">Endless Cinema in your bag !</p>
@@ -91,7 +91,7 @@ export default function Application() {
             <img src={Image3} alt="image" className="order-2 shrink-0 h-2/6 md:h-4/6 max-h-96" />
           </div>
 
-          <div data-aos="fade-up" className="flex flex-col md:flex-row justify-between items-center gap-y-5 w-full md:h-48 lg:h-72 xl:h-[700px]">
+          <div data-aos="fade-up" className="flex flex-col md:flex-row justify-between items-center gap-y-5 w-full h-auto md:h-56 lg:h-80 xl:h-[500px] 2xl:h-[600px]">
             <img src={Image4} alt="image" className="order-1 shrink-0 h-2/6 md:h-4/6 max-h-96" />
 
             <div className="order-3 md:order-1 flex flex-col justify-center items-start gap-y-3 text-xs sm450:text-sm md:text-base lg:text-xl">
