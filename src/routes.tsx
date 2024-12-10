@@ -11,6 +11,8 @@ import Movie from "./pages/Movie";
 import Serial from "./pages/Serial";
 import Movies from "./pages/Movies";
 import Favorites from "./pages/Favorites";
+import Movies3D from "./pages/Movies3D";
+import BoxOffice from "./pages/boxoffice";
 
 let routes: RouteObject[] = [
   { path: "/", element: <Navigator to="/digimovie/" /> },
@@ -19,6 +21,7 @@ let routes: RouteObject[] = [
       { path: "", element: <HomePage /> },
       { path: "home", element: <HomePage /> },
       { path: "/digimovie/movies", element: <Movies /> },
+      { path: "/digimovie/movies/3d", element: <Movies3D /> },
       { path: "movie/:title", element: <Movie /> },
       { path: "serial/:title", element: <Serial /> },
 
@@ -35,6 +38,7 @@ let routes: RouteObject[] = [
       { path: "favorites", element: <Favorites /> },
       { path: "notifications", element: <h1>notifications</h1> },
       { path: "top-250-movies", element: <Top250Movies /> },
+      { path: "boxoffice", element: <BoxOffice /> },
     ],
   },
   { path: "/digimovie/application", element: <Application /> },

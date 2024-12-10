@@ -2,19 +2,20 @@ import { useEffect, useState } from "react";
 
 import MovieCard from "../components/MovieCard";
 import Pagination from "../components/Pagination";
-import { Top250, TypeMovie } from "../services/Datas";
+import { Top250, TypeMovie, Movies3D } from "../services/Datas";
 
 interface Props{
+  type?: "normal" | "3d";
   reset: any;
   setReset: any;
 }
 
-export default function DisplayMovies({ reset, setReset }: Props) {
+export default function DisplayMovies({ reset, setReset, type }: Props) {
   const [currentPage, setCurrentPage] = useState<number>(1);
-let countPerPage = 8;
+  let countPerPage = 8;
 
-  let allMovies = [...Top250];
-  allMovies.sort( (a, b) => a.Title.toUpperCase() < b.Title.toUpperCase() ? -1 : 1 )
+  let allMovies = type==="3d" ? [...Movies3D] : [...Top250]
+  type === "normal" && allMovies.sort( (a, b) => a.Title.toUpperCase() < b.Title.toUpperCase() ? -1 : 1 )
   const [moviesArray, setMovieArray] = useState<TypeMovie[] | any[]>([])
 
   useEffect(() => {
@@ -29,7 +30,7 @@ let countPerPage = 8;
       { moviesArray.map((movie, index) => <MovieCard key={movie.Title} movie={movie} reset={reset} setReset={setReset} dataAos={index%2 === 0 ? "fade-up-right": "fade-up-left"} dataAosDuration="2000" /> ) }
 
       {/* page botton pagination */}
-      <Pagination size={Top250.length} countPerPage={countPerPage} currentPage={currentPage} setPage={setCurrentPage} />
+      <Pagination size={type==="3d" ? Movies3D.length : Top250.length} countPerPage={countPerPage} currentPage={currentPage} setPage={setCurrentPage} />
     </div>    
   );
 }

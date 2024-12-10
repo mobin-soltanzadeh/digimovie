@@ -57,6 +57,8 @@ export default function Header({ onLogInOut }: Props) {
                   <div className={`actorModal flex justify-between items-center w-full h-44 md:h-64 px-4 bg-transparent/60 rounded-xl z-10 backdrop-blur-sm transition-opacity duration-500`}>
                     <div className="flex flex-col justify-end items-start gap-y-2 h-full mb-8">
                       <Link to="/digimovie/movies" className="flex justify-center items-center gap-x-1 hover:text-orange-400 transition-colors duration-300 text-nowrap" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span>All Movies</Link>
+                      <Link to="/digimovie/movies/3d" className="flex justify-center items-center gap-x-1 hover:text-orange-400 transition-colors duration-300 text-nowrap" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span>3D Movies</Link>
+                      <Link to="/digimovie/boxoffice" className="flex justify-center items-center gap-x-1 hover:text-orange-400 transition-colors duration-300 text-nowrap" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span>Box Office</Link>
                       <Link to="/digimovie/top-250-movies" className="flex justify-center items-center gap-x-1 hover:text-orange-400 transition-colors duration-300 text-nowrap" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span>Top 250 Movies</Link>
                     </div>
 
