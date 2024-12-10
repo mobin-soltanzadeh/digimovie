@@ -17,10 +17,6 @@ const smallScreenHandler = (size: number, smallScreen: boolean, setSmallScreen: 
   })
 }
 
-const isScreenSmall = (size: number): boolean => {
-  return window.innerWidth < size;
-}
-
 const likedMovies = (): string[] => {
   return JSON.parse(localStorage.getItem("LikedMovies") || '""');
 
@@ -68,4 +64,4 @@ const toCapital = (name: string) => {
   return name[0].toUpperCase() + name.slice(1);
 }
 
-export { isLogin, smallScreenHandler, isScreenSmall, likedMovies, isMovieLiked, addLikedMovies, deleteLikedMovies, countLikedMovies, votesConverter, movieNameConverter, toCapital}
+export { isLogin, smallScreenHandler, likedMovies, isMovieLiked, addLikedMovies, deleteLikedMovies, countLikedMovies, votesConverter, movieNameConverter, toCapital}

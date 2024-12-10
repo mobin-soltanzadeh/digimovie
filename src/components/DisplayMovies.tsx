@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import Pagination from "../components/Pagination";
 import { Top250, TypeMovie, Movies3D } from "../services/Datas";
-import { isScreenSmall } from "../services/functions";
 
 interface Props{
   type?: "normal" | "3d";
