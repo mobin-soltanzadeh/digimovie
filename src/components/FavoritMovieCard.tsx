@@ -17,9 +17,9 @@ export default function FavoritMovieCard({ movieName, status, setStatus }: Props
   }
 
   return (
-  <div className="FavoritMovieCard flex justify-between items-center gap-x-1 text-lg w-full px-10 py-4 bg-gray-200 dark:bg-zinc-900 rounded-xl">
-      <Link to={"/digimovie/movie/"+movieName} className="flex justify-center items-center gap-x-2 text-lg font-serif hover:text-orange-400 line-clamp-1"><BiCameraMovie size={"25px"} color="#fb923c" /> {movieName}</Link>
-      <div className="w-6 h-6 hover:text-orange-400 cursor-pointer" onClick={clickHandler} ><IoTrashOutline size={"100%"} /> </div>
+    <div className="FavoritMovieCard flex justify-between items-center gap-x-4 text-sm lg:text-lg px-2 md:px-4 lg:px-10 py-4 bg-gray-200 dark:bg-zinc-900 rounded-xl">
+      <Link to={"/digimovie/movie/"+movieName} className="flex justify-center items-center gap-x-2 text-sm lg:text-lg font-serif hover:text-orange-400 line-clamp-1"><BiCameraMovie size={"25px"} color="#fb923c" /> {movieName}</Link>
+      <div className="w-5 h-5 lg:w-6 lg:h-6 hover:text-orange-400 cursor-pointer" onClick={clickHandler} ><IoTrashOutline size={"100%"} /> </div>
     </div>
   );
 }
