@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { TfiAndroid } from "react-icons/tfi";
@@ -5,7 +6,6 @@ import { IoTvOutline } from "react-icons/io5";
 import { IoLogoApple } from "react-icons/io";
 import { BiLogoWindows } from "react-icons/bi";
 import { IoArrowDownOutline } from "react-icons/io5";
-
 
 import BackToTop from "../components/BackToTop";
 
@@ -15,8 +15,9 @@ import Image3 from "../assets/application3.png";
 import Image4 from "../assets/application4.png";
 
 export default function Application() {
-  // localStorage.setItem("LikedMovies", JSON.stringify(["a"]))
-  // console.log(JSON.parse("1"));
+  
+  // change Title 
+  useEffect(() => { document.title = "DigiMovie - Application" }, [])
 
   return (
     <div className="Application flex flex-col items-center bg-gradient-to-b text-gray-100 from-zinc-900 via-stone-900 to-gray-950 min-h-screen font-dana-medium overflow-hidden">

@@ -13,6 +13,9 @@ export default function Favorites() {
     allLikedMovies = likedMovies();
   }, [reset])
   
+  // change Title 
+  useEffect(() => { document.title = "DigiMovie - Favorites" }, [])
+
   if(counts===0)  return (
     <div className="mt-20 mb-40 lg:mb-72 xl:mb-96 text-center px-20 py-5 bg-gray-300 dark:bg-zinc-800 overflow-hidden">
       <h1>Ops !</h1>

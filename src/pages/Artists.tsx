@@ -13,18 +13,22 @@ export default function Artists({ type }: Props) {
 
   if (type === "all") {
     results = [...maleActors, ...femaleActors].sort((a, b) => a.name.localeCompare(b.name));
+    document.title = "DigiMovie - Artists";
     title = "Best Artists";
 
   } else if (type === "male") {
     results = maleActors.sort((a, b) => a.name.localeCompare(b.name));
+    document.title = "DigiMovie - Actors";
     title = "Best Actors";
 
   } else if (type === "female") {
-    results = femaleActors.sort((a, b) => a.name.localeCompare(b.name))
+    results = femaleActors.sort((a, b) => a.name.localeCompare(b.name));
+    document.title = "DigiMovie - Actress";
     title = "Best Actress";
 
   } else if (type === "directors") {
-    results = directors.sort((a, b) => a.name.localeCompare(b.name))
+    results = directors.sort((a, b) => a.name.localeCompare(b.name));
+    document.title = "DigiMovie - Directors";
     title = "Best Directors";
 
   } else results = [];

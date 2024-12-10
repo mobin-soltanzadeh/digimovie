@@ -1,9 +1,14 @@
+import { useEffect } from "react";
+
 import SlidePage from "../components/Slider";
 import HomePageMain from "../components/HomePageMain/HomePageMain";
 import { useOutletContext } from "react-router-dom";
 
 function HomePage() {
   const [reset, setReset] = useOutletContext<any>()
+
+  // change Title
+  useEffect(() => { document.title = "DigiMovie - Movie platform" }, [])
   
   return (
     <>

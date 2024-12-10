@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 import {  maleActors, femaleActors, directors } from "../services/Datas";
 import { TiLocation } from "react-icons/ti";
@@ -29,6 +30,9 @@ export default function Actor() {
   else if ( alphabet.slice(22, 24).includes(actorName[actorName.length-1].toLocaleLowerCase()) ) actorMovieIndex = [141, 151, 161, 171, 181, 191, 201, 211, 221, 211];
   else if ( alphabet.slice(24).includes(actorName[actorName.length-1].toLocaleLowerCase()) ) actorMovieIndex =     [142, 152, 162, 172, 182, 192, 202, 212, 222, 212];
   else actorMovieIndex = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120];
+
+  // change Title 
+  useEffect(() => { document.title = "DigiMovie - Artist" }, [])
 
   return (
     <div className="Actor flex flex-col gap-y-3 mb-14">

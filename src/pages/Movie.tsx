@@ -47,6 +47,7 @@ export default function Movie() {
   }
   
   useEffect(() => {
+    document.title = "DigiMovi - Movie Info"
     fetch(`https://www.omdbapi.com/?apikey=ad6c509b&t=${name}&type=movie&plot=full`)
       .then(res => res.json() )
       .then(data => {

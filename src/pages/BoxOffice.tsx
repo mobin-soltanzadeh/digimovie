@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
 import { boxOffice } from "../services/Datas";
 
 export default function BoxOffice() {
+
+  // change Title 
+  useEffect(() => { document.title = "DigiMovie - BoxOffice" }, [])
+
   return (
     <table className="boxoffice flex flex-col justify-start items-start gap-y-3 w-full lg:w-250 xl:w-300 mx-auto px-3 md:px-0 rounded-lg  overflow-hidden">
 
