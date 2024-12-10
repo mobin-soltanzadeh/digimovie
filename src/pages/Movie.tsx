@@ -14,7 +14,7 @@ import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import StarVote from "../components/StarVote";
 import Skeleton from "../components/Skeleton";
 import { TypeMovie } from "../services/Datas";
-import { isMovieLiked, addLikedMovies, deleteLikedMovies, votesConverter, movieNameConverter } from "../services/functions";
+import { isMovieLiked, addLikedMovies, deleteLikedMovies, votesConverter, movieNameConverter, calculateCommentCount } from "../services/functions";
 import ImdbLogo from "../components/ImdbLogo";
 import Comment from "../components/Comment";
 import DownloadLinks from "../components/DownloadLinks";
@@ -27,14 +27,10 @@ export default function Movie() {
   let name:string = "";
   let locationPathname = useLocation().pathname
   if(locationPathname.includes("/title=")) name = locationPathname.slice(23);
-  else name = locationPathname.slice(17);  
+  else name = locationPathname.slice(17); 
   
   // calculate Comment count
-  let commentCount = movieNameConverter(name).toUpperCase().charCodeAt(4)
-  commentCount = commentCount > 60 ? commentCount/2 : commentCount;
-  commentCount = commentCount > 30 ? commentCount-25 : commentCount-10;
-  commentCount = Math.floor(commentCount)
-  console.log([...Array(commentCount).keys()])
+  let commentCount = calculateCommentCount(name)
 
   const [isLike, setLike] = useState<boolean>(isMovieLiked(name));
   const [isLoading, setLoading] = useState<Boolean>(true)

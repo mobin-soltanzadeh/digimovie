@@ -64,4 +64,11 @@ const toCapital = (name: string) => {
   return name[0].toUpperCase() + name.slice(1);
 }
 
-export { isLogin, smallScreenHandler, likedMovies, isMovieLiked, addLikedMovies, deleteLikedMovies, countLikedMovies, votesConverter, movieNameConverter, toCapital}
+const calculateCommentCount = (movieName: string): number => {
+  let commentCount = movieNameConverter(movieName).toUpperCase().charCodeAt(4) || movieNameConverter(movieName).toUpperCase().charCodeAt(0)
+  commentCount = commentCount > 60 ? commentCount/2 : commentCount;
+  commentCount = commentCount > 30 ? commentCount-15 : commentCount;
+  return Math.floor(commentCount)
+}
+
+export { isLogin, smallScreenHandler, likedMovies, isMovieLiked, addLikedMovies, deleteLikedMovies, countLikedMovies, votesConverter, movieNameConverter, toCapital, calculateCommentCount}
