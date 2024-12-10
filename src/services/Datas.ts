@@ -68,6 +68,7 @@ let preferredMovies: TypePreferredMovie[] = [
   {"Resolution": "1080p BluRay", "Title":"The Wild Robot","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BZjM2M2E3YzAtZDJjYy00MDhkLThiYmItOGZhNzQ3NTgyZmI0XkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"8.3"},
   {"Resolution": "1080p WEB-DL Full HD", "Title":"Love, Divided","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BNGJiZjY3MWItMmVmNy00MmJkLTg2NjMtM2VkMWNjZTQ0NDI3XkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"5.9"},
   {"Resolution": "1080p BluRay", "Title":"Flow","Year":"2024","Poster":"https://m.media-amazon.com/images/M/MV5BOTM5ODBlOTAtYjcwZi00YzkzLWIzODEtMTM2MTZlNDFmMWU2XkEyXkFqcGc@._V1_SX700.jpg","imdbRating":"8.0"},
+
 ]
 
 let preferredSeries = [
