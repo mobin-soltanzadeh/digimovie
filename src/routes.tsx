@@ -12,12 +12,14 @@ import Serial from "./pages/Serial";
 import Movies from "./pages/Movies";
 import Favorites from "./pages/Favorites";
 import Movies3D from "./pages/Movies3D";
-import BoxOffice from "./pages/boxoffice";
+import BoxOffice from "./pages/BoxOffice";
 
 let routes: RouteObject[] = [
   { path: "/", element: <Navigator to="/digimovie/" /> },
   {
-    path: "/digimovie", element: <WebSite />, children: [
+    path: "/digimovie",
+    element: <WebSite />,
+    children: [
       { path: "", element: <HomePage /> },
       { path: "home", element: <HomePage /> },
       { path: "/digimovie/movies", element: <Movies /> },
@@ -25,12 +27,22 @@ let routes: RouteObject[] = [
       { path: "movie/:title", element: <Movie /> },
       { path: "serial/:title", element: <Serial /> },
 
-      { path: "genre", element: <MovieWithGenre />, children: [{ path: "*", element: <MovieWithGenre /> }] },
+      {
+        path: "genre",
+        element: <MovieWithGenre />,
+        children: [{ path: "*", element: <MovieWithGenre /> }],
+      },
 
       { path: "actors", element: <Actors type="all" /> },
-      { path: "actors/male", element: <Navigator to="/digimovie/actors/male/page=1" /> },
+      {
+        path: "actors/male",
+        element: <Navigator to="/digimovie/actors/male/page=1" />,
+      },
       { path: "actors/male/:page", element: <Actors type="male" /> },
-      { path: "actors/female", element: <Navigator to="/digimovie/actors/female/page=1" /> },
+      {
+        path: "actors/female",
+        element: <Navigator to="/digimovie/actors/female/page=1" />,
+      },
       { path: "actors/female/:page", element: <Actors type="female" /> },
       { path: "directors", element: <Actors type="directors" /> },
       { path: "actor/:name", element: <Actor /> },
