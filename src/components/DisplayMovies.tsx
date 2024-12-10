@@ -15,7 +15,7 @@ export default function DisplayMovies({ reset, setReset, type }: Props) {
   let countPerPage = 8;
 
   let allMovies = type==="3d" ? [...Movies3D] : [...Top250]
-  type === "normal" && allMovies.sort( (a, b) => a.Title.toUpperCase() < b.Title.toUpperCase() ? -1 : 1 )
+  // type === "normal" && allMovies.sort( (a, b) => a.Title.toUpperCase() < b.Title.toUpperCase() ? -1 : 1 )
   const [moviesArray, setMovieArray] = useState<TypeMovie[] | any[]>([])
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function DisplayMovies({ reset, setReset, type }: Props) {
   }, [currentPage])
 
   return (
-    <div className="flex flex-col gap-y-5 w-full">
+    <div className="flex flex-col gap-y-5 w-full overflow-hidden">
       {/* generate each movie */}
       { moviesArray.map((movie, index) => <MovieCard key={movie.Title} movie={movie} reset={reset} setReset={setReset} dataAos={index%2 === 0 ? "fade-up-right": "fade-up-left"} dataAosDuration="2000" /> ) }
 

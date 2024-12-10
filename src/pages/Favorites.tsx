@@ -8,14 +8,17 @@ export default function Favorites() {
 
   let counts = countLikedMovies();
   let allLikedMovies = likedMovies();
-  
-  if(counts===0)  return (
-    <div><h1>You add nothing to your favorits list</h1></div>
-  );
 
   useEffect(() => {
     allLikedMovies = likedMovies();
   }, [reset])
+  
+  if(counts===0)  return (
+    <div className="mt-20 mb-40 lg:mb-72 xl:mb-96 text-center px-20 py-5 bg-gray-300 dark:bg-zinc-800">
+      <h1>Ops !</h1>
+      <h1 className="">You have not added any posts to your favorites list</h1>
+    </div>
+  );
 
   return (
     <div className="Favorites min-h-[55vh] w-full">
