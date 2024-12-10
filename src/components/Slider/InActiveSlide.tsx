@@ -13,7 +13,7 @@ export default function InActiveSlide({ movie, position }: Props) {
   const [isLoading, setLoading] = useState<boolean>(true)
 
   return (
-    <Link to={"movie/" + movie.Title} className="InActiveSlide" >
+    <Link to={"/digimovie/movie/" + movie.Title} className="InActiveSlide" >
       <div className={`slide-next w-full h-full bg-gray-400 ${position==="left" ? "rounded-l-2xl": "rounded-r-2xl"} overflow-hidden z-50`}>
 
         <img className="w-full" src={ movie.Poster } alt="movie-image" onLoad={() => setLoading(false)} />

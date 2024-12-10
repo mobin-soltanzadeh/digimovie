@@ -14,7 +14,7 @@ export default function ActiveSlide({ movie }: Props) {
   const [isLoading, setLoading] = useState<boolean>(true);
   
   return (
-    <Link to={"movie/" + movie.Title}>
+    <Link to={"/digimovie/movie/" + movie.Title}>
       <div className="relative slide-active w-full h-full bg-gray-700 rounded-2xl overflow-hidden">
         {/* background image */}
         <img className="absolute top-0 w-full -translate-y-7" src={movie.Poster} alt="movie-image" onLoad={() => setLoading(false)} />
