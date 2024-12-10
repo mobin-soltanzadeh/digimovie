@@ -74,7 +74,7 @@ export default function MovieCard({ movie, type, dataAos, dataAosDuration, reset
   )
 
   return (
-    <div data-aos={dataAos || ""} data-aos-duration={dataAosDuration || "2000"} className="flex flex-col md:flex-row justify-center items-center gap-4 w-4/5 mx-auto sm500:w-full pt-4 px-2 lg:p-4 bg-white dark:bg-neutral-800 rounded-lg">
+    <div data-aos={dataAos || ""} data-aos-duration={dataAosDuration || "2000"} className="flex flex-col md:flex-row justify-center items-center gap-4 w-4/5 mx-auto sm500:w-full pt-4 pb-2 px-2 lg:p-4 bg-white dark:bg-neutral-800 rounded-lg">
       <Link to={"/digimovie/movie/"+movie.Title} className="cover h-80 sm400:h-96 aspect-[4/6] mx-auto md:mx-0 border-x-[2px] border-t-[3px] border-b border-orange-400 border-b-orange-400/80 rounded-lg">
         <img src={movie?.Poster} alt={movie?.Title} style={{width: isLoading ? "0px" : "100%", height: isLoading ? "0px" : "100%"}} className="object-cover rounded-lg" onLoad={() => setLoading(false)} /> 
         { isLoading && <Skeleton type="movie" /> }
