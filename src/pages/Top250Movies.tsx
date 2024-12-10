@@ -34,7 +34,7 @@ export default function Top250Movies() {
 
   useEffect(() => {
     setMovieArray([...allBestMovies.slice(startIndex, endIndex)])
-    
+    window.scrollTo({top: 0, left: 0, behavior: "smooth"})
   }, [currentPage])
 
   // setting web title

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import Pagination from "../components/Pagination";
 import { Top250, TypeMovie, Movies3D } from "../services/Datas";
+import { isScreenSmall } from "../services/functions";
 
 interface Props{
   type?: "normal" | "3d";
@@ -21,6 +22,7 @@ export default function DisplayMovies({ reset, setReset, type }: Props) {
   useEffect(() => {
     let startIndex = (currentPage-1)*countPerPage, endIndex = currentPage * countPerPage;
     setMovieArray(allMovies.slice(startIndex, endIndex));
+    window.scrollTo({top: 0, left: 0, behavior: "smooth"})
 
   }, [currentPage])
 
