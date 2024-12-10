@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 export default function Top250Movies() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [filterMenu, setFilterMenu] = useState(false);
-  const [filter, setFilter] = useState<"Name" | "Imdb" | "Released date">("Imdb");
+  const [filter, setFilter] = useState<"Name" | "IMDB" | "Released date">("IMDB");
 
   let countPerPage = 10;
   let startIndex = (currentPage-1)*countPerPage, endIndex = currentPage * countPerPage;
@@ -23,7 +23,7 @@ export default function Top250Movies() {
   let allBestMovies = [...Top250];
 
   useEffect(() => {
-    if (filter === "Imdb") allBestMovies.sort( (a, b) => Number(b.imdbRating) - Number(a.imdbRating) );
+    if (filter === "IMDB") allBestMovies.sort( (a, b) => Number(b.imdbRating) - Number(a.imdbRating) );
     else if (filter === "Name") allBestMovies.sort( (a, b) => a.Title.toUpperCase() < b.Title.toUpperCase() ? -1 : 1 );
     else if (filter === "Released date") allBestMovies.sort( (a, b) => +a.Released.split(" ")[2] > +b.Released.split(" ")[2] ? -1 : 0 );
     else allBestMovies.sort( (a, b) => Number(b.imdbRating) - Number(a.imdbRating) );
@@ -63,7 +63,7 @@ export default function Top250Movies() {
                     <div className="w-4 lg:w-6"><IoIosArrowDown size={"100%"} className="mt-1" /></div>
                   </button>
                   <ul style={{display: filterMenu ? "flex" : "none"}} className="absolute top-full translate-y-2 left-0 flex flex-col justify-center items-start w-full border-4 border-black/40 bg-gray-100 dark:bg-neutral-800 rounded-md z-50">
-                    <li className="gap-x-2 py-1 text-start w-full px-3 hover:bg-zinc-700 text-nowrap" onClick={() => setFilter("Imdb")}>Imdb</li>
+                    <li className="gap-x-2 py-1 text-start w-full px-3 hover:bg-zinc-700 text-nowrap" onClick={() => setFilter("IMDB")}>IMDB</li>
                     <li className="gap-x-2 py-1 text-start w-full px-3 hover:bg-zinc-700 text-nowrap" onClick={() => setFilter("Name")}>Name</li>
                     <li className="gap-x-2 py-1 text-start w-full px-3 hover:bg-zinc-700 text-nowrap" onClick={() => setFilter("Released date")}>Released date</li>
                  </ul>
