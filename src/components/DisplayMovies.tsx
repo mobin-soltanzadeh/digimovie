@@ -11,7 +11,7 @@ interface Props{
 
 export default function DisplayMovies({ reset, setReset }: Props) {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  let countPerPage = 5;
+let countPerPage = 8;
 
   let allMovies = [...Top250];
   allMovies.sort( (a, b) => a.Title.toUpperCase() < b.Title.toUpperCase() ? -1 : 1 )

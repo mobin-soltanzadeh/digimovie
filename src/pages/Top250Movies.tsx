@@ -16,7 +16,7 @@ export default function Top250Movies() {
   const [filterMenu, setFilterMenu] = useState(false);
   const [filter, setFilter] = useState<"Name" | "Imdb" | "Released date">("Imdb");
 
-  let countPerPage = 8;
+  let countPerPage = 10;
   let startIndex = (currentPage-1)*countPerPage, endIndex = currentPage * countPerPage;
 
   const [moviesArray, setMovieArray] = useState<TypeMovie[] | any[]>([]);

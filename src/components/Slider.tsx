@@ -16,7 +16,7 @@ export default function Slider() {
   smallScreenHandler(780, smallScreen, setSmallScreen);
 
   if (window.innerWidth < 780) return (
-    <div className="px-5">
+    <div className="slider px-5">
       <Swiper centeredSlides={true} speed={700} loop={true} navigation={true} autoplay={{ delay: 5000, disableOnInteraction: false }} keyboard={{ enabled: true }} modules={[ Keyboard, Navigation, Autoplay ]} >
       
         {/* make each slide with -> map */}
@@ -34,7 +34,7 @@ export default function Slider() {
 
   return (
     <>
-    <div className="px-5 lg:px-20">      
+    <div className="slider px-5 lg:px-20">      
       <Swiper centeredSlides={true} speed={700} loop={true} navigation={true} autoplay={{ delay: 5000, disableOnInteraction: false }} keyboard={{ enabled: true }} modules={[ Keyboard, Navigation, Autoplay ]} >
         
       {
