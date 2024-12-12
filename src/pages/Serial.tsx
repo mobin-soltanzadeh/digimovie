@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { SlArrowRight } from "react-icons/sl";
-import { TiLocation } from "react-icons/ti";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useOutletContext } from "react-router-dom";
 
+import DownloadLinks from "../components/DownloadLinks";
+import Comment from "../components/Comment";
 import { TypeSerial } from "../services/Datas";
 import Skeleton from "../components/Skeleton";
+import { addLikedMovies, calculateCommentCount, deleteLikedMovies, isMovieLiked, movieNameConverter, votesConverter } from "../services/functions";
+import ImdbLogo from "../components/ImdbLogo";
 
 import { AiOutlineComment } from "react-icons/ai";
 import { LiaPenFancySolid, LiaTheaterMasksSolid } from "react-icons/lia";
@@ -12,10 +14,16 @@ import { LuAlarmClock } from "react-icons/lu";
 import { MdLanguage } from "react-icons/md";
 import { PiFolderOpen } from "react-icons/pi";
 import { PiFilmSlate } from "react-icons/pi";
+import { SlArrowRight } from "react-icons/sl";
+import { TiLocation } from "react-icons/ti";
+import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 
 export default function Serial() {
-  const [isLoading, setLoading] = useState<Boolean>(true)
-  const [result, setResult] = useState<TypeSerial>()
+  const [reset, setReset] = useOutletContext<any>()
+  const [modalA, setModalA] = useState<boolean>(false)
+  const [modalB, setModalB] = useState<boolean>(false)
+  
+  // find selected movie->name
 
   let name:string = "";
   
@@ -24,12 +32,44 @@ export default function Serial() {
   if(locationPathname.includes("/title=")) name = locationPathname.slice(24);
   else name = locationPathname.slice(18);
 
+  // calculate Comment count
+  let commentCount = calculateCommentCount(name)
+
+  const [isLike, setLike] = useState<boolean>(isMovieLiked(name));
+  const [isLoading, setLoading] = useState<Boolean>(true)
+  const [result, setResult] = useState<TypeSerial>()
+
   let loadingObject :any = new Object({Title: "N / A", RunTime: "N / A", Genre: "N / A", Country: "N / A", Director: "N / A", Rated: "N / A", Writer: "N / A", Actors: "N / A", totalSeasons: "N / A", imdbRating: "N / A" , imdbVotes: "N / A" })
-  
+ 
+  const like = () => {
+    isLike ? deleteLikedMovies(name) : addLikedMovies(movieNameConverter(name));
+    setLike(!isLike);
+    setReset(!reset)
+  }
+
+  const handleOpenModalA = (e: any) => {
+    console.log("")
+
+    if(e.target.localName === "path") setModalA(!modalA)
+    else if(e.target.className.includes("link")) setModalA(!modalA)
+  }
+
+  const handleOpenModalB = (e: any) => {
+    console.log("")
+
+    if(e.target.localName === "path") setModalB(!modalB)
+    else if(e.target.className.includes("comments")) setModalB(!modalB)
+  }
+
   useEffect(() => {
+    document.title = "DigiMovi - Serial Info"
     fetch(`https://www.omdbapi.com/?apikey=ad6c509b&t=${name}&type=series&plot=full`)
       .then(res => res.json() )
-      .then(data => setResult(data.Title ? data : loadingObject) )
+      .then(data => {
+        data.imdbRating = data.imdbRating==="N/A" ? "8.2" : data.imdbRating;
+        data.imdbVotes = data.imdbVotes==="N/A" ? "4,376,290" : data.imdbVotes;
+        setResult(data.Response === "True" ? data : loadingObject)        
+      })
       .catch(() => setResult(loadingObject));
 
   }, [])
@@ -49,7 +89,6 @@ export default function Serial() {
       <div className="w-full bg-gray-300 dark:bg-neutral-800">
         
         <div className="flex flex-col sm500:flex-row gap-4 w-full lg:w-250 xl:w-300 mx-auto px-3 py-4 lg:px-0">
-
           <div className="cover h-96 aspect-[4/6] mx-auto sm:mx-0 border-x-[2px] border-t-[3px] border-b border-orange-400 border-b-orange-400/80 rounded-lg">
             <img src={result?.Poster} alt={result?.Title} style={{width: isLoading ? "0px" : "100%", height: isLoading ? "0px" : "100%"}} className="object-cover rounded-lg" onLoad={() => setLoading(false)} /> 
             { isLoading && <Skeleton type="movie" /> }
@@ -58,17 +97,30 @@ export default function Serial() {
           <div className="meta flex flex-col justify-between items-start w-full">
             
             <div className="meta-head flex justify-between items-center w-full">
-              <div className="leftSide flex flex-col justify-start items-start font-semibold">
-                <h1 className="text-2xl">{result?.Title}</h1>
-                <div className="comments flex justify-center items-center gap-x-1">
-                  <AiOutlineComment size={"20px"} color="#fb923c" />
-                  <span><span className="text-orange-400">4</span> Comments</span>
+ 
+              <div className="meta-head flex justify-between items-center w-full">
+                <div className="leftSide flex flex-col justify-start items-start">
+                  <h1 className="text-base md:text-xl lg:text-2xl text-wrap line-clamp-1">{result?.Title} {String(result?.Year).length > 5 ? result?.Year.replace("–", "-") : result?.Year.slice(0, 4) }</h1>
+                  <div className="comments flex justify-center items-center gap-x-1">
+                    <AiOutlineComment size={"20px"} color="#fb923c" />
+                    <span><span className="text-orange-400">{commentCount}</span> Comments</span>
+                  </div>
                 </div>
-              </div>
             
-              <div className="rightSide">
-                <span>like</span>
-              </div>
+                <div className="rightSide hidden sm400:flex justify-center items-center gap-x-2 lg:gap-x-4">
+                  <span onClick={like}>
+                    <div className="w-6 h-6 lg:w-7 lg:h-7 cursor-pointer">{isLike ? <IoMdHeart size={"100%"} color="#e11d48" /> : <IoMdHeartEmpty size={"100%"} />}</div>
+                  </span>
+
+                  <div className="flex flex-col justify-center items-center gap-y-1">
+                    <span><span className="text-xl text-orange-400 font-semibold">{result?.imdbRating}</span>/10</span>
+                    <span className="w-full h-0.5 bg-orange-500 dark:bg-orange-400"></span>
+                    <span className="text-nowrap text-center">{votesConverter(result?.imdbVotes)}</span>
+                    <ImdbLogo imdb={result?.imdbID || ""} />
+
+                  </div>
+                </div>
+              </div>        
             </div>
 
             <div className="meta-main w-full">
@@ -97,20 +149,15 @@ export default function Serial() {
             
             </div>
           </div>
-
         </div>
 
       </div>
 
-      {/* download links & actors & films mortabet & coments */}
-      <div className="flex flex-col gap-y-4 w-full lg:w-250 xl:w-300 mx-auto px-3 py-4 lg:px-0">
-        
-        <div className="w-full h-16 bg-gray-300 dark:bg-neutral-800 rounded-lg"></div>
-        <div className="w-full h-16 bg-gray-300 dark:bg-neutral-800 rounded-lg"></div>
-        <div className="w-full h-16 bg-gray-300 dark:bg-neutral-800 rounded-lg"></div>
-        <div className="w-full h-16 bg-gray-300 dark:bg-neutral-800 rounded-lg"></div>
+      {/* download links */}
+      <DownloadLinks modal={modalA} clickHandler={handleOpenModalA} />
 
-      </div>
+      {/* Comments */}
+      <Comment commentCount={commentCount} modal={modalB} clickHandler={handleOpenModalB} />
 
     </div>
   );

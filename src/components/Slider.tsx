@@ -40,7 +40,7 @@ export default function Slider() {
       {
         preferredMovies.map((movie, index: number) => (
           <SwiperSlide key={movie.Title}>
-            <div className="slider flex justify-center items-center z-50">
+            <div className="slider flex justify-center items-center z-30">
 
               <div className="w-44 xl:w-[250px] h-[250px] xl:h-[300px]">
                 <InActiveSlide movie={ index===0 ? preferredMovies[preferredMovies.length-1] : preferredMovies[index-1] } position="left" />

@@ -5,6 +5,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 
 import BackToTop from "../components/BackToTop";
+import AboutMe from "../components/AboutMeModal/AboutMe";
 
 function WebSite() {
   const [reset, setReset] = useState(true);
@@ -19,6 +20,7 @@ function WebSite() {
       <Outlet context={[reset, setReset]} />
       <Footer />
       <BackToTop />
+      <AboutMe />
     </div>
   );
 }

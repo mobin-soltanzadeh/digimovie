@@ -31,7 +31,7 @@ export default function DisplayMovies({ reset, setReset, type }: Props) {
       { moviesArray.map((movie, index) => <MovieCard key={movie.Title} movie={movie} reset={reset} setReset={setReset} dataAos={index%2 === 0 ? "fade-up-right": "fade-up-left"} dataAosDuration="2000" /> ) }
 
       {/* page botton pagination */}
-      <Pagination size={type==="3d" ? Movies3D.length : Top250.length} countPerPage={countPerPage} currentPage={currentPage} setPage={setCurrentPage} />
+      <Pagination size={type==="3d" ? Movies3D.length : Top250.slice.length} countPerPage={countPerPage} currentPage={currentPage} setPage={setCurrentPage} />
     </div>    
   );
 }

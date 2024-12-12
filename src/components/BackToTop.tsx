@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 
+interface Props{
+  showAfterScrollY?: number
+}
 
-export default function BackToTop() {
+export default function BackToTop({ showAfterScrollY=500 }: Props) {
   const [show, setShow] = useState<boolean>(false);
 
   window.addEventListener("scroll", () => {
-    if(window.scrollY > 500 && !show) setShow(true);
-    if(window.scrollY < 500 && show) setShow(false);      
+    if(window.scrollY > showAfterScrollY && !show) setShow(true);
+    if(window.scrollY < showAfterScrollY && show) setShow(false);      
   })
   
   return (

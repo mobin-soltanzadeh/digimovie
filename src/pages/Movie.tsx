@@ -23,6 +23,7 @@ export default function Movie() {
   const [reset, setReset] = useOutletContext<any>()
   const [modalA, setModalA] = useState<boolean>(false)
   const [modalB, setModalB] = useState<boolean>(false)
+  
   // find selected movie->name
   let name:string = "";
   let locationPathname = useLocation().pathname
