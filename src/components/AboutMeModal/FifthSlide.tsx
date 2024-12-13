@@ -2,9 +2,8 @@ import { SlArrowLeft } from "react-icons/sl";
 import { FaXmark } from "react-icons/fa6";
 import { GrLanguage } from "react-icons/gr";
 
-import faCv from "../../assets/cv.pdf"
-// make English cv later
-import enCv from "../../assets/cv.pdf"
+import faCv from "../../assets/mobin-soltanzadeh-Fa.pdf"
+import enCv from "../../assets/mobin-soltanzadeh-En.pdf"
 
 interface Props {
   currentModal: any;
@@ -15,8 +14,8 @@ interface Props {
 }
 
 export default function FifthSlide({ currentModal, setCurrentModal, setFirstVisit, lang, setLang }: Props) {
-  const en = ["ltr", "Contact me", "GitHub", "Telegram", "Email", ""];
-  const fa = ["rtl", "راه های ارتباطی با من", "گیت هاب", "تلگرام", "ایمیل", "برای دانلود رزومه من اینجا کلیک کنید"];
+  const en = ["ltr", "Contact me", "GitHub", "Telegram", "Email", "LinkedIn"];
+  const fa = ["rtl", "راه های ارتباطی با من", "گیت هاب", "تلگرام", "ایمیل", "لینکدین"];
   const result = lang==="en" ? en : fa;
 
   return (
@@ -27,6 +26,7 @@ export default function FifthSlide({ currentModal, setCurrentModal, setFirstVisi
         <a href="https://github.com/mobin-soltanzadeh" target="_blank" className="text-xs sm:text-sm lg:text-base xl:text-lg text-start text-nowrap border border-gray-100 hover:bg-gray-100 hover:text-zinc-900 px-2 sm:px-3 py-1 rounded-full transition-colors duration-300 cursor-pointer">{result[2]}</a>
         <a href="https://t.me/msoltani2119" target="_blank" className="text-xs sm:text-sm lg:text-base xl:text-lg text-start text-nowrap border border-gray-100 hover:bg-gray-100 hover:text-zinc-900 px-2 sm:px-3 py-1 rounded-full transition-colors duration-300 cursor-pointer">{result[3]} </a>
         <a href="mailto:mobin.soltanzadeh.work@gmail.com" target="_blank" className="text-xs sm:text-sm lg:text-base xl:text-lg text-start text-nowrap border border-gray-100 hover:bg-gray-100 hover:text-zinc-900 px-2 sm:px-3 py-1 rounded-full transition-colors duration-300 cursor-pointer">{result[4]} </a>
+        {/* <a href="linkedin" target="_blank" className="text-xs sm:text-sm lg:text-base xl:text-lg text-start text-nowrap border border-gray-100 hover:bg-gray-100 hover:text-zinc-900 px-2 sm:px-3 py-1 rounded-full transition-colors duration-300 cursor-pointer">{result[5]} </a>  */} {/* linkeding accoumt link */}
       </div>
 
       { lang==="fa" && <h1 className="text-xs sm:text-sm lg:text-base xl:text-lg text-start">برای دانلود رزومه <a href={faCv} download className="text-orange-400 hover:text-orange-500 hover:font-bold">اینجا</a> کلیک کنید</h1> }

@@ -9,8 +9,8 @@ interface Props {
 }
 
 export default function ForthSlide({ currentModal, setCurrentModal, lang, setLang }: Props) {
-  const en = ["ltr", "Things i've learned", "Tailwindcss", "Bootstrap", "JavaScript / TypeScript", "React", "Swiper", "ReCharts", "AOS", "Python", "C++", "Teamwork skills", "Languages i speak", "English", "Türkçe", "فارسی"];
-  const fa = ["rtl", "چیزایی که یاد دارم", "Tailwindcss", "Bootstrap", "JavaScript / TypeScript", "React", "Swiper", "ReCharts", "AOS", "Python", "C++", "کار گروهی", "زبان ها", "English", "Türkçe", "فارسی"];
+  const en = ["ltr", "Things i've learned", "Tailwindcss", "Bootstrap", "JavaScript / TypeScript", "React", "Swiper", "ReCharts", "AOS", "Python", "C++", "Teamwork skills", "Languages i speak", "English", "Türkçe", "فارسی", "Axios"];
+  const fa = ["rtl", "چیزایی که یاد دارم", "Tailwindcss", "Bootstrap", "JavaScript / TypeScript", "React", "Swiper", "ReCharts", "AOS", "Python", "C++", "کار گروهی", "زبان ها", "English", "Türkçe", "فارسی", "Axios"];
   const result = lang==="en" ? en : fa;
 
   return (
@@ -22,6 +22,7 @@ export default function ForthSlide({ currentModal, setCurrentModal, lang, setLan
       <p className="text-xs sm:text-sm lg:text-base xl:text-lg text-start text-nowrap border border-gray-100 hover:bg-gray-100 hover:text-zinc-900 px-2 sm:px-3 py-1 rounded-full transition-colors duration-300 cursor-pointer">{result[3]} </p>
       <p className="text-xs sm:text-sm lg:text-base xl:text-lg text-start text-nowrap border border-gray-100 hover:bg-gray-100 hover:text-zinc-900 px-2 sm:px-3 py-1 rounded-full transition-colors duration-300 cursor-pointer">{result[4]} </p>
       <p className="text-xs sm:text-sm lg:text-base xl:text-lg text-start text-nowrap border border-gray-100 hover:bg-gray-100 hover:text-zinc-900 px-2 sm:px-3 py-1 rounded-full transition-colors duration-300 cursor-pointer">{result[5]} </p>
+      <p className="text-xs sm:text-sm lg:text-base xl:text-lg text-start text-nowrap border border-gray-100 hover:bg-gray-100 hover:text-zinc-900 px-2 sm:px-3 py-1 rounded-full transition-colors duration-300 cursor-pointer">{result[16]} </p>
       <p className="text-xs sm:text-sm lg:text-base xl:text-lg text-start text-nowrap border border-gray-100 hover:bg-gray-100 hover:text-zinc-900 px-2 sm:px-3 py-1 rounded-full transition-colors duration-300 cursor-pointer">{result[6]} </p>
       <p className="text-xs sm:text-sm lg:text-base xl:text-lg text-start text-nowrap border border-gray-100 hover:bg-gray-100 hover:text-zinc-900 px-2 sm:px-3 py-1 rounded-full transition-colors duration-300 cursor-pointer">{result[7]} </p>
       <p className="text-xs sm:text-sm lg:text-base xl:text-lg text-start text-nowrap border border-gray-100 hover:bg-gray-100 hover:text-zinc-900 px-2 sm:px-3 py-1 rounded-full transition-colors duration-300 cursor-pointer">{result[8]} </p>
