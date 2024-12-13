@@ -18,7 +18,7 @@ export default function Comment({ commentCount=10, modal, clickHandler }: Props)
         <span className="comments"> <svg className={`comments w-4 h-4 ${modal ? "rotate-0" : "-rotate-90"} fill-zinc-900 dark:fill-gray-100 transition-transform duration-500`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 12" id="arrow"> <path fillRule="evenodd" fill="#EB8307" d="M9.894 5.147L5.007 8.75.119 5.147v3.056l4.888 3.603 4.887-3.603V5.147z"></path> <path fillRule="evenodd" d="M9.894.665L5.007 4.268.119.665v3.056l4.888 3.603 4.887-3.603V.665z"></path> </svg> </span>
       </div>
 
-      <ul className={`comments flex flex-col justify-start items-start gap-y-4 w-11/12 mx-auto ${modal ? "h-[500px] mb-4 mini-scroll" : "h-0 m-0"}  p-0 overflow-hidden transition-[height] duration-500`}> 
+      <ul className={`comments flex flex-col justify-start items-start gap-y-4 w-11/12 mx-auto ${modal ? "h-[500px] mb-4 mini-scroll" : "h-0 m-0 overflow-hidden"}  p-0 transition-[height] duration-500`}> 
         
         { [...Array(commentCount).keys()].map(index => (
         <li key={index} className="flex flex-col sm:flex-row justify-start items-center gap-x-5 gap-y-2 w-full p-4 bg-gray-100 dark:bg-neutral-900 rounded-lg">

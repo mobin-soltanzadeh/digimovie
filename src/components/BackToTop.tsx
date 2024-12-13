@@ -14,7 +14,7 @@ export default function BackToTop({ showAfterScrollY=500 }: Props) {
   })
   
   return (
-    <div style={{display: show ? "inline-block" : "none"}} className="BackToTop fixed bottom-4 right-6 w-10 h-10 p-2 rounded-full animate-bounce border-2 border-black/50 dark:border-white/80 cursor-pointer z-50" onClick={() => window.scrollTo({top: 0, behavior: "smooth"})} >
+    <div style={{display: show ? "inline-block" : "none"}} className="BackToTop fixed bottom-4 right-3 sm:right-6 w-8 h-8 sm:w-10 sm:h-10 p-1 sm:p-2 rounded-full animate-bounce border-2 border-black/50 dark:border-white/80 cursor-pointer z-50" onClick={() => window.scrollTo({top: 0, behavior: "smooth"})} >
       <FaArrowUp size={"100%"} />
     </div>
   );

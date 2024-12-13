@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import LinkMenuItem from "../LinkMenuItem";
 import ThemeLike from "../ThemeLike";
 import UserNav from "../UserNav";
@@ -5,8 +8,7 @@ import SiteLogo from "../SiteLogo";
 
 import { IoSearchSharp } from "react-icons/io5";
 import { TfiAndroid } from "react-icons/tfi";
-import { IoMenuOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { IoIosMenu, IoIosClose } from "react-icons/io";
 
 import movieModal from "../../assets/movieModal.png"
 import serialModal from "../../assets/serialModal.png"
@@ -17,7 +19,17 @@ interface Props{
 }
 
 export default function Header({ onLogInOut }: Props) {
+  const [menu, setMenu] = useState<boolean>(false);
+  const [modalA, setModalA] = useState<boolean>(false);
+  const [modalB, setModalB] = useState<boolean>(false);
+  const [modalC, setModalC] = useState<boolean>(false);
 
+  const closeMenu = () => {
+    setMenu(false)
+    setModalA(false);
+    setModalB(false);
+    setModalC(false);    
+  }
   return (
     // site Header
     <header className="Header flex flex-col gap-y-4 py-5 w-full">
@@ -26,9 +38,9 @@ export default function Header({ onLogInOut }: Props) {
         {/* logo & theme & likes */}
         <div className="left-side flex justify-between items-center gap-x-4 lg:gap-x-8 w-full sm:w-auto">
           <SiteLogo />
-          <div className="menu flex justify-center items-center gap-x-3">
+          <div className="menu flex justify-center items-center gap-x-2 sm:gap-x-3">
             <ThemeLike />
-            <div className="w-8 h-8 sm:w-9 sm:h-9 sm:hidden"><IoMenuOutline size={"100%"} /></div>
+            <div className="w-7 h-7 sm450:w-9 sm450:h-9 sm:hidden cursor-pointer" onClick={() => setMenu(true)}><IoIosMenu size={"100%"} /></div>
           </div>
         </div>
 
@@ -41,11 +53,11 @@ export default function Header({ onLogInOut }: Props) {
 
       {/* page-links & search-box */}
       <section className="second-part w-full bg-white dark:bg-neutral-800 px-3">
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-y-3 w-full lg:w-250 xl:w-300 mx-auto py-4">
+        <div className="flex flex-col lg:flex-row justify-between items-center sm:gap-y-3 w-full lg:w-250 xl:w-300 mx-auto py-4">
 
           <div className="relative flex flex-col sm450:flex-row justify-center lg:justify-center items-start sm450:items-center gap-y-3 gap-x-3 md:gap-x-6 w-full lg:w-auto px-5 lg:px-0">
             
-            <div className="flex justify-center items-center gap-x-3 md:gap-x-6">
+            <div className="hidden sm:flex justify-center items-center gap-x-3 md:gap-x-6">
               
               {/* Home Link */}
               <LinkMenuItem title="Home" desc="Last movies" link="/digimovie/"><svg className="fill-orange-400 scale-95 group-hover:scale-125 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="home"> <path d="M426 495.983H86c-25.364 0-46-20.635-46-46v-242.02c0-8.836 7.163-16 16-16s16 7.164 16 16v242.02c0 7.72 6.28 14 14 14h340c7.72 0 14-6.28 14-14v-242.02c0-8.836 7.163-16 16-16s16 7.164 16 16v242.02c0 25.364-20.635 46-46 46z"></path> <path d="M496 263.958a15.945 15.945 0 01-11.313-4.687L285.698 60.284c-16.375-16.376-43.02-16.376-59.396 0L27.314 259.272c-6.248 6.249-16.379 6.249-22.627 0-6.249-6.248-6.249-16.379 0-22.627L203.675 37.656c28.852-28.852 75.799-28.852 104.65 0l198.988 198.988c6.249 6.249 6.249 16.379 0 22.627A15.943 15.943 0 01496 263.958zM320 495.983H192c-8.837 0-16-7.164-16-16v-142c0-27.57 22.43-50 50-50h60c27.57 0 50 22.43 50 50v142c0 8.836-7.163 16-16 16zm-112-32h96v-126c0-9.925-8.075-18-18-18h-60c-9.925 0-18 8.075-18 18z"></path> </svg></LinkMenuItem>
@@ -89,7 +101,7 @@ export default function Header({ onLogInOut }: Props) {
 
             </div>
 
-            <div className="flex justify-center items-center gap-x-3 md:gap-x-6" >
+            <div className="hidden sm:flex justify-center items-center gap-x-3 md:gap-x-6" >
 
               {/* Artists Link */}
               <div className="group" >
@@ -98,9 +110,9 @@ export default function Header({ onLogInOut }: Props) {
                 <div className="absolute top-full hidden group-hover:flex pt-4 left-0 w-full text-gray-100" >
                   <div className={`actorModal flex justify-between items-center w-full h-44 md:h-64 px-4 bg-transparent/60 rounded-xl z-10 backdrop-blur-sm transition-opacity duration-500`}>
                     <div className="flex flex-col justify-end items-start gap-y-2 h-full mb-8">
-                      <Link to="/digimovie/actors/male/page=1" className="flex justify-center items-center gap-x-1 hover:text-orange-400 transition-colors duration-300 text-nowrap" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span> Best Actors</Link>
-                      <Link to="/digimovie/actors/female/page=1" className="flex justify-center items-center gap-x-1 hover:text-orange-400 transition-colors duration-300 text-nowrap" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span> Best Actress</Link>
-                      <Link to="/digimovie/directors" className="flex justify-center items-center gap-x-1 hover:text-orange-400 transition-colors duration-300 text-nowrap" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span> Best Directors</Link>
+                      <Link to="/digimovie/actors/male/page=1" className="flex justify-center items-center gap-x-1 hover:text-orange-400 transition-colors duration-300 text-nowrap" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span>Best Actors</Link>
+                      <Link to="/digimovie/actors/female/page=1" className="flex justify-center items-center gap-x-1 hover:text-orange-400 transition-colors duration-300 text-nowrap" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span>Best Actress</Link>
+                      <Link to="/digimovie/directors" className="flex justify-center items-center gap-x-1 hover:text-orange-400 transition-colors duration-300 text-nowrap" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span>Best Directors</Link>
                     </div>
 
                     <img className="h-full" src={actorModal} alt="" />
@@ -125,6 +137,73 @@ export default function Header({ onLogInOut }: Props) {
 
         </div>
       </section>
+
+      {/* backGroundBlurModal */}
+      <div className={`backGroundBlurModal ${ menu ? "inline-block" : "hidden" } sm:hidden fixed top-0 right-0 w-screen h-screen backdrop-blur-md z-[60]`} onClick={closeMenu}></div>
+      {/* menu */}
+      <div className={`MobileItemsMenu sm:hidden fixed top-0 left-0 -translate-x-full ${menu ? "translate-x-0 rounded-r-[50px]" : "rounded-none"} w-7/12 min-w-56 h-screen bg-gray-300 dark:bg-zinc-900 transition-all duration-1000 z-[70]`}>
+        
+        <ul className="flex flex-col gap-y-2 w-full h-full px-2 pt-6">
+          {/* Home */}
+          <li className="relative flex justify-between items-center w-full mb-4 cursor-pointer">
+            <div onClick={closeMenu} className="w-[150px]" > <SiteLogo size={150} /> </div>
+            <div onClick={closeMenu} className="w-10 h-10 hover:rotate-[360deg] transition-transform duration-500"> <IoIosClose size={"100%"} /> </div>
+          </li>
+
+          {/* Movies */}
+          <li className="flex flex-col justify-start items-start gap-y-1 w-full py-2 cursor-pointer" onClick={() => setModalA(!modalA)}>
+            <div className="flex justify-between items-center w-full">
+              <span className="font-semibold">Movies</span>
+              <span> <svg className={`w-4 h-4 ${modalA ? "rotate-0" : "-rotate-90"} fill-zinc-900 dark:fill-gray-100 transition-transform duration-500`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 12" id="arrow"> <path fillRule="evenodd" fill="#EB8307" d="M9.894 5.147L5.007 8.75.119 5.147v3.056l4.888 3.603 4.887-3.603V5.147z"></path> <path fillRule="evenodd" d="M9.894.665L5.007 4.268.119.665v3.056l4.888 3.603 4.887-3.603V.665z"></path> </svg> </span>
+            </div>
+
+            <ul className={`${ modalA ? "w-full h-[120px] p-3" : "w-0 h-0" } bg-gray-200 dark:bg-zinc-950 transition-all duration-500 rounded-lg overflow-hidden`}>
+              <div onClick={closeMenu} ><Link to="/digimovie/movies" className="flex justify-start items-center gap-x-2 text-sm text-nowrap h-6" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span>All Movies</Link> </div>
+              <div onClick={closeMenu} ><Link to="/digimovie/movies/3d" className="flex justify-start items-center gap-x-2 text-sm text-nowrap h-6" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span>3D Movies</Link> </div>
+              <div onClick={closeMenu} ><Link to="/digimovie/boxoffice" className="flex justify-start items-center gap-x-2 text-sm text-nowrap h-6" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span>Box Office</Link> </div>
+              <div onClick={closeMenu} ><Link to="/digimovie/top-250-movies" className="flex justify-start items-center gap-x-2 text-sm text-nowrap h-6" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span>Top 250 Movies</Link> </div>
+            </ul>
+          </li>
+
+          {/* Series */}
+          <li className="flex flex-col justify-start items-start gap-y-1 w-full py-2 cursor-pointer" onClick={() => setModalB(!modalB)}>
+            <div className="flex justify-between items-center w-full">
+              <span className="font-semibold">Series</span>
+              <span> <svg className={`w-4 h-4 ${modalB ? "rotate-0" : "-rotate-90"} fill-zinc-900 dark:fill-gray-100 transition-transform duration-500`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 12" id="arrow"> <path fillRule="evenodd" fill="#EB8307" d="M9.894 5.147L5.007 8.75.119 5.147v3.056l4.888 3.603 4.887-3.603V5.147z"></path> <path fillRule="evenodd" d="M9.894.665L5.007 4.268.119.665v3.056l4.888 3.603 4.887-3.603V.665z"></path> </svg> </span>
+            </div>
+
+            <ul className={`${ modalB ? "w-full h-12 p-3" : "w-0 h-0" } bg-gray-200 dark:bg-zinc-950 transition-all duration-500 rounded-lg overflow-hidden`}>
+              <div className="flex justify-start items-center gap-x-2 text-sm text-nowrap h-6" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span>(soon)</div>
+            </ul>
+          </li>
+          
+          {/* Artists */}
+          <li className="flex flex-col justify-start items-start gap-y-1 w-full py-2 cursor-pointer" onClick={() => setModalC(!modalC)}>
+            <div className="flex justify-between items-center w-full">
+              <span className="font-semibold">Artists</span>
+              <span> <svg className={`w-4 h-4 ${modalC ? "rotate-0" : "-rotate-90"} fill-zinc-900 dark:fill-gray-100 transition-transform duration-500`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 12" id="arrow"> <path fillRule="evenodd" fill="#EB8307" d="M9.894 5.147L5.007 8.75.119 5.147v3.056l4.888 3.603 4.887-3.603V5.147z"></path> <path fillRule="evenodd" d="M9.894.665L5.007 4.268.119.665v3.056l4.888 3.603 4.887-3.603V.665z"></path> </svg> </span>
+            </div>
+
+            <ul className={`${ modalC ? "w-full h-24 p-3" : "w-0 h-0" } bg-gray-200 dark:bg-zinc-950 transition-all duration-500 rounded-lg overflow-hidden`}>
+              <div onClick={closeMenu} ><Link to="/digimovie/actors/male/page=1" className="flex justify-start items-center gap-x-2 text-sm text-nowrap h-6" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span>Best Actors</Link> </div>
+              <div onClick={closeMenu} ><Link to="/digimovie/actors/female/page=1" className="flex justify-start items-center gap-x-2 text-sm text-nowrap h-6" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span>Best Actress</Link> </div>
+              <div onClick={closeMenu} ><Link to="/digimovie/directors" className="flex justify-start items-center gap-x-2 text-sm text-nowrap h-6" > <span className="w-2 h-2 bg-orange-400 rounded-full"></span>Best Directors</Link> </div>
+            </ul>
+          </li>
+
+          {/* Application */}
+          <Link to={"/digimovie/application"} className="flex justify-start max-w-fit items-center pr-2 py-2 cursor-pointer">
+            <span className="font-semibold">Application</span>
+          </Link>
+
+
+          {/* Theme & likes */}
+          <li className="absolute bottom-6 left-0 right-0" onClick={closeMenu}>
+            <ThemeLike />
+          </li>
+
+        </ul>
+      </div>
 
     </header>
   );

@@ -10,7 +10,7 @@ interface Props {
 
 export default function ThirdSlide({ currentModal, setCurrentModal, lang, setLang }: Props) {
   const en = ["ltr", "About me", "I am a Junior web developer with good knowledge of", "Front-End", "development. I love discipline and i also stand for quality. I love spending time on finding little details and optimizing web apps. Also i whould like to working in a team", "Details", "Name", "Mobin Soltanzadeh", "Age", "21", "Location", "Mashhad, Iran", "Education", "Computer Engineering", ""];
-  const fa = ["rtl", "مختصری از من", "عرضم به حضورتون که من یه برنامه نویس", "Junior", "هستم که علاقه شدیدی به برنامه نویسی و دنیای تکنولوژی دارم، همونطور که معلومه تو حوزه فرانت کار میکنم و سعی میکنم خودمو مدام آپدیت کنم، هم تو کار تیمی خوبم و هم حل مسئله خوبی دارم", "جزئیات", "اسم", "مبین سلطان زاده", "سن", "21", "شهر", "مشهد", "تحصیلات", "دانشجوی مهندسی کامپوتر"];
+  const fa = ["rtl", "مختصری از من", "عرضم به حضورتون که من یه برنامه نویس", "Junior", "هستم که علاقه شدیدی به برنامه نویسی و دنیای تکنولوژی دارم، همونطور که معلومه تو حوزه فرانت کار میکنم و سعی میکنم خودمو مدام آپدیت کنم، هم تو کار تیمی خوبم و هم قدرت حل مسئله خوبی دارم", "جزئیات", "اسم", "مبین سلطان زاده", "سن", "21", "شهر", "مشهد", "تحصیلات", "دانشجوی مهندسی کامپیوتر"];
   const result = lang==="en" ? en : fa;
 
   return (

@@ -18,6 +18,7 @@ import { isMovieLiked, addLikedMovies, deleteLikedMovies, votesConverter, movieN
 import ImdbLogo from "../components/ImdbLogo";
 import Comment from "../components/Comment";
 import DownloadLinks from "../components/DownloadLinks";
+import LikedModal from "../components/LikedModal";
 
 export default function Movie() {
   const [reset, setReset] = useOutletContext<any>()
@@ -34,6 +35,8 @@ export default function Movie() {
   let commentCount = calculateCommentCount(name)
 
   const [isLike, setLike] = useState<boolean>(isMovieLiked(name));
+  const [isFirstRender, setIsFirstRender] = useState(true);
+  const [displayLikedModal, setLikedModal] = useState<boolean>(false)
   const [isLoading, setLoading] = useState<Boolean>(true)
   const [result, setResult] = useState<TypeMovie>()
 
@@ -41,7 +44,8 @@ export default function Movie() {
   let loadingObject :any = new Object({Title: "N / A", RunTime: "N / A", Genre: "N / A", Country: "N / A", Director: "N / A", Rated: "N / A", Writer: "N / A", Actors: "N / A" })
 
   const like = () => {
-    isLike ? deleteLikedMovies(name) : addLikedMovies(movieNameConverter(name));
+    console.log(isLike ? "delete" : "add")
+    isLike ? deleteLikedMovies(movieNameConverter(name)) : addLikedMovies(movieNameConverter(name));
     setLike(!isLike);
     setReset(!reset)
   }
@@ -59,6 +63,15 @@ export default function Movie() {
     if(e.target.localName === "path") setModalB(!modalB)
     else if(e.target.className.includes("comments")) setModalB(!modalB)
   }
+
+  useEffect(() => {
+    if (isFirstRender) {
+      setIsFirstRender(false);
+      return;
+    }
+
+    setLikedModal(true)
+  }, [isLike])
   
   useEffect(() => {
     document.title = "DigiMovi - Movie Info"
@@ -158,6 +171,9 @@ export default function Movie() {
 
       {/* Comments */}
       <Comment commentCount={commentCount} modal={modalB} clickHandler={handleOpenModalB} />
+
+      { displayLikedModal && isLike && <LikedModal type="like" /> }
+      { displayLikedModal && !isLike && <LikedModal type="dislike" /> }
 
     </div>
   );

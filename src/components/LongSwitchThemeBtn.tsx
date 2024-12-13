@@ -27,10 +27,10 @@ export default function Theme() {
   }
 
   return (
-    <button className="Theme relative flex justify-between items-center gap-x-2" onClick={changetheme}>
-      <HiOutlineMoon className="moon w-6 h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8" />
-      <HiOutlineSun className="sun w-6 h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8" />
-      <div className="absolute left-0 dark:left-full dark:-translate-x-full w-6 h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 bg-white rounded-full transition-all duration-500"></div>
+    <button className="Theme relative flex justify-between items-center gap-x-1 sm:gap-x-2" onClick={changetheme}>
+      <HiOutlineMoon className="moon w-5 h-5 sm450:w-6 sm450:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8" />
+      <HiOutlineSun className="sun w-5 h-5 sm450:w-6 sm450:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8" />
+      <div className="absolute left-0 dark:left-full dark:-translate-x-full w-5 h-5 sm450:w-6 sm450:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 bg-white rounded-full transition-all duration-500"></div>
     </button>
   );
 }

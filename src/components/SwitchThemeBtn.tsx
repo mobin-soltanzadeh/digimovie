@@ -27,7 +27,7 @@ export default function Theme() {
   }
 
   return (
-    <button className={`Theme relative w-6 h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 hover:text-orange-500`} onClick={changetheme} >
+    <button className={`Theme relative w-5 h-5 sm450:w-6 sm450:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 hover:text-orange-500`} onClick={changetheme} >
       <HiOutlineMoon className="moon absolute left-0 top-0 w-full h-full scale-100 dark:scale-0 dark:rotate-[360deg] transition-all duration-300" />
       <HiOutlineSun className="sun absolute left-0 top-0 w-full h-full scale-0 dark:scale-100 dark:rotate-[360deg] transition-all duration-300" />
     </button>

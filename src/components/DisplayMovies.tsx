@@ -32,6 +32,7 @@ export default function DisplayMovies({ reset, setReset, type }: Props) {
 
       {/* page botton pagination */}
       <Pagination size={type==="3d" ? Movies3D.length : Top250.slice.length} countPerPage={countPerPage} currentPage={currentPage} setPage={setCurrentPage} />
+      
     </div>    
   );
 }

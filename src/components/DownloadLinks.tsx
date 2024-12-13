@@ -11,7 +11,7 @@ export default function DownloadLinks({ modal, clickHandler }: Props) {
         <span className="link"> <svg className={`link w-4 h-4 ${modal ? "rotate-0" : "-rotate-90"} fill-zinc-900 dark:fill-gray-100 transition-transform duration-500`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 12" id="arrow"> <path fillRule="evenodd" fill="#EB8307" d="M9.894 5.147L5.007 8.75.119 5.147v3.056l4.888 3.603 4.887-3.603V5.147z"></path> <path fillRule="evenodd" d="M9.894.665L5.007 4.268.119.665v3.056l4.888 3.603 4.887-3.603V.665z"></path> </svg> </span>
       </div>
 
-      <ul className={`link flex flex-col justify-start items-start gap-y-4 w-11/12 mx-auto ${modal ? "h-[800px] sm500:h-[550px] mb-4" : "h-0 m-0"} p-0 overflow-hidden transition-[height] duration-500`}>
+      <ul className={`link flex flex-col justify-start items-start gap-y-4 w-11/12 mx-auto ${modal ? "h-[800px] sm500:h-[550px] mini-scroll mb-4" : "h-0 m-0 overflow-hidden"} p-0 transition-[height] duration-500`}>
         
         <li className="flex flex-col sm500:flex-row justify-between items-center gap-y-3 w-full h-1/4 px-4 py-2 bg-gray-100 dark:bg-neutral-900 rounded-lg">
           <div className="flex flex-col justify-start items-start">
