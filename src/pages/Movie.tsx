@@ -117,12 +117,12 @@ export default function Movie() {
                 </div>
               </div>
             
-              <div className="rightSide hidden sm400:flex justify-center items-center gap-x-2 lg:gap-x-4">
+              <div className="rightSide flex justify-center items-center gap-x-2 lg:gap-x-4">
                 <span onClick={like}>
                   <div className="w-6 h-6 lg:w-7 lg:h-7 cursor-pointer">{isLike ? <IoMdHeart size={"100%"} color="#e11d48" /> : <IoMdHeartEmpty size={"100%"} />}</div>
                 </span>
 
-                <div className="flex flex-col justify-center items-center gap-y-1">
+                <div className="hidden sm400:flex flex-col justify-center items-center gap-y-1">
                   <span><span className="text-xl text-orange-400 font-semibold">{result?.imdbRating}</span>/10</span>
                   <span className="w-full h-0.5 bg-orange-500 dark:bg-orange-400"></span>
                   <span className="text-nowrap text-center">{votesConverter(result?.imdbVotes)}</span>

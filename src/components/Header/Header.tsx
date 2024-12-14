@@ -198,7 +198,7 @@ export default function Header({ onLogInOut }: Props) {
 
 
           {/* Theme & likes */}
-          <li className="flex justify-center items-center about w-full" onClick={closeMenu}>
+          <li className="absolute bottom-8 left-0 right-0 flex justify-center items-center w-full" onClick={closeMenu}>
             <ThemeLike />
           </li>
 
